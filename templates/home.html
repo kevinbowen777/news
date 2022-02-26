@@ -4,10 +4,11 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+Hi {{ user.username }}! You are {{ user.age }} years old.
+  <p><a href="{% url 'logout' %}">Logout</a></p>
 {% else %}
   <p>You are not logged in</p>
-  <p><a href="{% url 'login' %}">Login</a> |
-  <p><a href="{% url 'signup' %}">Sign Up</a>
+  <a href="{% url 'login' %}">Login</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 {% endblock content %}
