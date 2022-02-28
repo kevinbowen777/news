@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     UpdateView, DeleteView, CreateView
@@ -28,7 +29,7 @@ class ArticleDeleteView(DeleteView):
     success_url = reverse_lazy('article_list')
 
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
     fields = ('title', 'body')
