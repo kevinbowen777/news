@@ -17,8 +17,9 @@ news is a demonstration of basic Django functionality.
  - TBD
 ---
 ## Screenshots
-[![Homepage[(https://github.com/kevinbowen777/news/blob/master/images/news_app-home-page.png)
+[![Homepage](https://github.com/kevinbowen777/news/blob/master/images/news_app-home-page.png)]
 
+[![Articles](https://github.com/kevinbowen777/news/blob/master/images/news_app-articles.png)]
 
 ---
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/news/blob/master/LICENSE)
