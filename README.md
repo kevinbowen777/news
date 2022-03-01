@@ -7,15 +7,17 @@ news is a demonstration of basic Django functionality.
 ## Features
  - User registration
  - Create, edit, and delete posts
+ - Add comments to articles
  - Admin management of users and posts
 
 ### Live Demo on Heroku: 
- - TBD
+ - [Newspaper app](https://limitless-crag-45588.herokuapp.com/)
 ### Docker Container Image:
 
  - TBD
 ---
-
+## Screenshots
+[![Homepage[(https://github.com/kevinbowen777/news/blob/master/images/news_app-home-page.png)
 
 
 ---
