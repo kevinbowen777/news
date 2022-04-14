@@ -1,6 +1,6 @@
 ## news - A mini blog
 
-news is a demonstration of basic Django functionality. 
+news is a demonstration of basic Django functionality.
 
 
 ---
@@ -18,7 +18,7 @@ news is a demonstration of basic Django functionality.
  - `python manage.py runserver`
  - Open browser to http://127.0.0.1:8000 or http://127.0.0.1:8000/admin/
 
-### Live Demo on Heroku: 
+### Live Demo on Heroku:
  - [Newspaper app](https://limitless-crag-45588.herokuapp.com/)
 ### Docker Container Image:
 
@@ -32,7 +32,7 @@ news is a demonstration of basic Django functionality.
 ---
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/news/blob/master/LICENSE)
 ---
-### Reporting Bugs                                                              
-                                                                                 
+### Reporting Bugs
+
    Visit the [Issues page](https://github.com/kevinbowen777/news/issues)
       to view currently open bug reports or open a new issue.

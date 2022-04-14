@@ -1,4 +1,4 @@
-from django.conf import settings
+from django.conf import settings  # noqa: F401
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
@@ -17,14 +17,14 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('article_detail', args=[str(self.id)])
+        return reverse("article_detail", args=[str(self.id)])
 
 
 class Comment(models.Model):
     article = models.ForeignKey(
         Article,
         on_delete=models.CASCADE,
-        related_name='comments',
+        related_name="comments",
     )
     comment = models.CharField(max_length=140)
     author = models.ForeignKey(
@@ -36,4 +36,4 @@ class Comment(models.Model):
         return self.comment
 
     def get_absolute_url(self):
-        return reverse('article_list')
+        return reverse("article_list")
