@@ -12,8 +12,9 @@ whitenoise = "==5.1.0"
 gunicorn = "==19.9.0"
 
 [dev-packages]
-pytest = "*"
-pre-commit = "*"
+pytest = "~=7.1.1"
+pre-commit = "~=2.18.1"
+black = "~=22.3.0"
 
 [requires]
 python_version = "3.10"
