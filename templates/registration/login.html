@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>Log In</h2>
-<form method="post">
+<form class="col-md-6" method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button class="btn btn-success ml-2" type="submit">Log In</button>
