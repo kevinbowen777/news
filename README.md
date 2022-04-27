@@ -5,7 +5,8 @@ news is a demonstration of basic Django functionality.
 
 ---
 ## Features
- - User registration
+ - User registration with email verification, password recovery
+ - Support for social authentication via GitHub OAuth
  - Create, edit, and delete posts
  - Admin management of users and posts
  - django-debug-toolbar available in DEBUG mode
