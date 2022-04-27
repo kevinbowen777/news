@@ -27,13 +27,13 @@ class SignUpPageTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_by_name(self):
-        response = self.client.get(reverse("signup"))
+        response = self.client.get(reverse("account_signup"))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
-        response = self.client.get(reverse("signup"))
+        response = self.client.get(reverse("account_signup"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "registration/signup.html")
+        self.assertTemplateUsed(response, "account/signup.html")
 
     def test_signup_form(self):
         new_user = get_user_model().objects.create_user(self.username, self.email)  # noqa: F841
