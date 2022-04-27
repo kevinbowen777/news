@@ -29,7 +29,7 @@ news is a demonstration of basic Django functionality.
 Home Page
 ![Homepage](https://github.com/kevinbowen777/news/blob/master/images/news_home-page.png)
 
-Articles
+Articles Page with drop-down menu shown
 ![Articles](https://github.com/kevinbowen777/news/blob/master/images/news_articles.png)
 
 Login Page with GitHub Oauth option
