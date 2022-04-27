@@ -7,15 +7,15 @@ news is a demonstration of basic Django functionality.
 ## Features
  - User registration
  - Create, edit, and delete posts
- - Add comments to articles
  - Admin management of users and posts
+ - django-debug-toolbar available in DEBUG mode
 
 ### Installation
  - `git clone https://github.com/kevinbowen777/news.git`
  - `cd news`
  - `pipenv install`
  - `pipenv shell`
- - `python manage.py runserver`
+ - `pipenv run python manage.py runserver`
  - Open browser to http://127.0.0.1:8000 or http://127.0.0.1:8000/admin/
 
 ### Live Demo on Heroku:
