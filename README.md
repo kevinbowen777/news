@@ -14,9 +14,9 @@ news is a demonstration of basic Django functionality.
 ### Installation
  - `git clone https://github.com/kevinbowen777/news.git`
  - `cd news`
- - `pipenv install`
- - `pipenv shell`
- - `pipenv run python manage.py runserver`
+ - `docker-compose up --build`
+ - `docker-compose exec web python manage.py migrate`
+ - `docker-compose exec web python manage.py createsuperuser`
  - Open browser to http://127.0.0.1:8000 or http://127.0.0.1:8000/admin/
 
 ### Live Demo on Heroku:
