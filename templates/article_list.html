@@ -3,6 +3,8 @@
 {% block title %}Articles{% endblock title %}
 
 {% block content %}
+<div class="container">
+  <p>
   {% for article in object_list %}
     <div class="card">
       <div class="card-header">
@@ -28,4 +30,6 @@
     </div>
     <br />
   {% endfor %}
+  </p>
+</div>
 {% endblock content %}
