@@ -158,8 +158,8 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 ACCOUNT_EMAIL_VERIFICATION = "optional"
 DEFAULT_FROM_EMAIL = "kevin.bowen@gmail.com"
 EMAIL_HOST = "smtp.sendgrid.net"
