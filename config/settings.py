@@ -156,8 +156,6 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 ACCOUNT_EMAIL_VERIFICATION = "optional"
@@ -167,6 +165,9 @@ EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # django-debug-toolbar
 
