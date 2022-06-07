@@ -8,14 +8,14 @@ from .models import Article, Comment
 
 class ArticleListView(LoginRequiredMixin, ListView):
     model = Article
-    template_name = "article_list.html"
+    template_name = "articles/article_list.html"
 
     paginate_by = 3
 
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
-    template_name = "article_detail.html"
+    template_name = "articles/article_detail.html"
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -24,7 +24,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         "title",
         "body",
     )
-    template_name = "article_edit.html"
+    template_name = "articles/article_edit.html"
 
     def test_func(self):
         obj = self.get_object()
@@ -33,7 +33,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
-    template_name = "article_delete.html"
+    template_name = "articles/article_delete.html"
     success_url = reverse_lazy("article_list")
 
     def test_func(self):
@@ -43,7 +43,7 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
-    template_name = "article_new.html"
+    template_name = "articles/article_new.html"
     fields = ("title", "body")
 
     def form_valid(self, form):
@@ -51,9 +51,44 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class CommentListView(LoginRequiredMixin, ListView):
+    model = Comment
+    template_name = "comments/comment_list.html"
+
+    paginate_by = 3
+
+
+class CommentDetailView(LoginRequiredMixin, DetailView):
+    model = Comment
+    template_name = "comments/comment_detail.html"
+
+
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Comment
+    fields = (
+        "title",
+        "body",
+    )
+    template_name = "comments/comment_edit.html"
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comment
+    template_name = "comments/comment_delete.html"
+    success_url = reverse_lazy("comment_list")
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
+
+
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
-    template_name = "comment_new.html"
+    template_name = "comments/comment_new.html"
     fields = ("article", "comment")
 
     def form_valid(self, form):
