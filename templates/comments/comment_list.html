@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <p>
+  {% for article in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <a class="font-weight-bold" href="{% url 'article_detail' article.pk %}">{{article.title }}</a> &middot;
+        <span class="text-muted">by {{ article.author }} |
+        {{ article.date }}</span>
+      </div>
+      <div class="card-body">
+        {{ article.body }}
+        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+        <a href="{% url 'article_delete' article.pk %}">Delete</a> |
+        <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
+        <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+  </p>
+</div>
+{% endblock content %}
