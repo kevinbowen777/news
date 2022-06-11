@@ -72,6 +72,8 @@ pre-commit = "^2.19.0"
 black = "^22.3.0"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
+django-test-plus = "^2.2.0"
+pytest-sugar = "^0.9.4"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
