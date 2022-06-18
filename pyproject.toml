@@ -65,6 +65,8 @@ psycopg2-binary = "^2.9.3"
 coverage = {extras = ["toml"], version = "^6.4.1"}
 pytest-cov = "^3.0.0"
 pytest-django = "^4.5.2"
+Pillow = "^9.1.1"
+django-countries = "^7.3.2"
 
 [tool.poetry.dev-dependencies]
 django-debug-toolbar = "^3.4.0"
