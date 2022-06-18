@@ -7,6 +7,9 @@ from .views import (
     ArticleListView,
     ArticleUpdateView,
     CommentCreateView,
+    CommentDeleteView,
+    CommentDetailView,
+    CommentUpdateView,
 )
 
 urlpatterns = [
@@ -21,5 +24,20 @@ urlpatterns = [
         "<int:pk>/comment/add/",
         CommentCreateView.as_view(),
         name="comment_new",
+    ),
+    path(
+        "comment/<int:pk>/detail/",
+        CommentDetailView.as_view(),
+        name="comment_detail",
+    ),
+    path(
+        "comment/<int:pk>/delete/",
+        CommentDeleteView.as_view(),
+        name="comment_delete",
+    ),
+    path(
+        "comment/<int:pk>/edit/",
+        CommentUpdateView.as_view(),
+        name="comment_edit",
     ),
 ]
