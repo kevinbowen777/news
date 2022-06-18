@@ -14,7 +14,7 @@
       <p>
       <ul>
         <span class="font-weight-bold">
-            <li>  {{ comment }} &middot;
+            <li><a href="{% url 'comment_detail' comment.pk %}"i>{{ comment }}</a> &middot;
         </span>
         <span class="text-muted">by {{ comment.author }} &middot; {{ comment.date }}</span>
       </ul>
