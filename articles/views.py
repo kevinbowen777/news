@@ -66,8 +66,8 @@ class CommentDetailView(LoginRequiredMixin, DetailView):
 class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Comment
     fields = (
-        "title",
-        "body",
+        "article",
+        "comment",
     )
     template_name = "comments/comment_edit.html"
 
