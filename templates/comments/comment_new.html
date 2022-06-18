@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block title %}{{ view.action|default:"Add" }} Book Review{% endblock title %}
+
 {% block content %}
+{% with action=view.action|default:"Add" %}
 <div class="container">
   <p>
-  <h2>New Comment</h2>
+  <h2>{{ action }} a Review</h2>
   <form class="col-md-6" action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
