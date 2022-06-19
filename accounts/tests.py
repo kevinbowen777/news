@@ -32,6 +32,15 @@ class CustomUserTests(TestCase):
         self.assertTrue(user.is_staff)
         self.assertTrue(user.is_superuser)
 
+    def test_get_absolute_url(self):
+        User = get_user_model()
+        user = User.objects.create_user(
+            username="kevin",
+            email="kevin@example.com",
+            password="T3stP@ss123!",
+        )
+        self.assertEqual(user.get_absolute_url(), "/accounts/kevin/")
+
 
 class SignupPageTests(TestCase):
 
