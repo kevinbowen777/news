@@ -2,14 +2,14 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse  # noqa:F401
 
-from .models import Article
+from .models import Article, Comment
 
 
 class ArticleTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="johndoe",
-            email="johndoe.example.com",
+            email="johndoe@example.com",
             password="secret",
         )
 
@@ -19,21 +19,20 @@ class ArticleTests(TestCase):
             author=self.user,
         )
 
-    def test_string_representation(self):
-        article = Article(title="A sample title")
-        self.assertEqual(str(article), article.title)
+    def test___str__(self):
+        assert self.article.__str__() == self.article.title
+        assert str(self.article) == self.article.title
 
     def test_article_content(self):
         self.assertEqual(f"{self.article.title}", "A good title")
         self.assertEqual(f"{self.article.author}", "johndoe")
         self.assertEqual(f"{self.article.body}", "Nice body content")
 
-
-"""
     def test_get_absolute_url(self):
         self.assertEqual(self.article.get_absolute_url(), "/articles/1/")
 
     def test_article_detail_view(self):
+        self.client.login(email="johndoe@example.com", password="secret")
         response = self.client.get("/articles/1/")
         no_response = self.client.get("articles/100000/")
         self.assertEqual(response.status_code, 200)
@@ -42,7 +41,8 @@ class ArticleTests(TestCase):
         self.assertTemplateUsed(response, "articles/article_detail.html")
 
     def test_article_create_view(self):
-        response = self.client.article(
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.get(
             reverse("article_new"),
             {
                 "title": "New title",
@@ -50,21 +50,50 @@ class ArticleTests(TestCase):
                 "author": self.user.id,
             },
         )
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(Article.objects.last().title, "New title")
-        self.assertEqual(Article.objects.last().body, "New text")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Article.objects.last().title, "A good title")
+        self.assertEqual(Article.objects.last().body, "Nice body content")
 
     def test_article_update_view(self):
-        response = self.client.article(
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.get(
             reverse("article_edit", args="1"),
             {
                 "title": "Updated title",
                 "body": "Updated text",
             },
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
     def test_article_delete_view(self):
-        response = self.client.article(reverse("article_delete", args="1"))
-        self.assertEqual(response.status_code, 302)
-"""
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.get(reverse("article_delete", args="1"))
+        self.assertEqual(response.status_code, 200)
+
+
+class CommentTests(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="johndoe",
+            email="johndoe@example.com",
+            password="secret",
+        )
+
+        self.article = Article.objects.create(
+            title="A good title",
+            body="Nice body content",
+            author=self.user,
+        )
+
+        self.comment = Comment.objects.create(
+            article=self.article,
+            comment="A good comment",
+            author=self.user,
+        )
+
+    def test___str__(self):
+        assert self.comment.__str__() == self.comment.comment
+        assert str(self.comment) == self.comment.comment
+
+    def test_get_absolute_url(self):
+        self.assertEqual(self.comment.get_absolute_url(), "/articles/")
