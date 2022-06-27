@@ -1,4 +1,7 @@
+"""Settings for the news project."""
 from pathlib import Path
+
+# import socket  # noqa: E402 # Comment out if not using debug_toolbar
 
 from environs import Env
 
@@ -33,7 +36,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.github",
     "crispy_forms",
     "django_countries",
-    "debug_toolbar",
+    # "debug_toolbar",
     "django_extensions",
     # local
     "accounts",
@@ -50,7 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -87,16 +90,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa:E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa:E501,B950
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa:E501
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa:E501,B950
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa:E501
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa:E501,B950
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa:E501
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa:E501,B950
     },
 ]
 
@@ -129,7 +132,7 @@ STATICFILES_FINDERS = [
 """
 The following seems to need to have collectstatic run, may throw a
 'ValueError: Missing staticfiles manifest entry'
-See also: http://whitenoise.evans.io/en/stable/django.html#troubleshooting-the-whitenoise-storage-backend  # noqa:E501
+See also: http://whitenoise.evans.io/en/stable/django.html#troubleshooting-the-whitenoise-storage-backend  # noqa:E501,B950
 """
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_STORATE = "whitenoise.storage.CompressedStaticFilesStorage"
@@ -176,11 +179,8 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = str(BASE_DIR.joinpath("media"))
 
 # django-debug-toolbar
-
-import socket
-
 # Use the following in Docker only:
-hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
+# hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+# INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 # The following is for use locally:
 # INTERNAL_IPS = ["127.0.0.1"]
