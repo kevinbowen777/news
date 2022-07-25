@@ -19,7 +19,6 @@ ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     "django_countries",
     # "debug_toolbar",
     "django_extensions",
-    # local
+    # Local
     "accounts",
     "articles",
     "pages",
@@ -76,9 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     "default": env.dj_db_url(
         "DATABASE_URL", default="postgres://postgres@db/postgres"
@@ -86,8 +83,6 @@ DATABASES = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa:E501,B950
@@ -103,14 +98,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "America/Vancouver"
-# TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -120,11 +111,10 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
 STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -134,15 +124,11 @@ The following seems to need to have collectstatic run, may throw a
 'ValueError: Missing staticfiles manifest entry'
 See also: http://whitenoise.evans.io/en/stable/django.html#troubleshooting-the-whitenoise-storage-backend  # noqa:E501,B950
 """
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-# STATICFILES_STORATE = "whitenoise.storage.CompressedStaticFilesStorage"
 # WHITENOISE_USE_FINDERS = True
 # WHITENOISE_MANIFEST_STRICT = False
 # WHITENOISE_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
