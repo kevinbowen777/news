@@ -20,10 +20,8 @@ news is a demonstration of basic Django functionality.
  - Open browser to http://127.0.0.1:8000 or http://127.0.0.1:8000/admin/
 
 ### Live Demo on Heroku:
- - [Newspaper app](https://limitless-crag-45588.herokuapp.com/)
-### Docker Container Image:
+ - [Newspaper app](https://kbowen-django-news.herokuapp.com/)
 
- - TBD
 ---
 ## Screenshots
 Home Page
