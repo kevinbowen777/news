@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import SimpleTestCase, TestCase
 from django.urls import resolve, reverse
 
-from .views import AboutPageView, HomePageView
+from ..views import AboutPageView, HomePageView
 
 
 class HomePageTests(SimpleTestCase):
@@ -17,7 +17,7 @@ class HomePageTests(SimpleTestCase):
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "home.html")
+        self.assertTemplateUsed(response, "pages/home.html")
 
     def tesst_homepage_url_resolves_homepageview(self):
         view = resolve("home")
@@ -33,7 +33,7 @@ class AboutPageTests(SimpleTestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_aboutpage_template(self):
-        self.assertTemplateUsed(self.response, "about.html")
+        self.assertTemplateUsed(self.response, "pages/about.html")
 
     def test_aboutpage_contains_correct_html(self):
         self.assertContains(self.response, "About Page")
