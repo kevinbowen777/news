@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
+
+{% block title %}Article Detail - {{ article.title }}{% endblock title %}
 
 {% block content %}
 <div class="container">
@@ -27,7 +29,7 @@
   <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
     <a href="{% url 'article_delete' article.pk %}">Delete</a> |
     <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
-  <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+  <p>Back to <a class="btn btn-primary" href="{% url 'article_list' %}">&laquo;All Articles</a></p>
   </p>
 </div>
 {% endblock content %}
