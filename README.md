@@ -1,7 +1,14 @@
-## news - A mini blog
+## news 
 
-news is a demonstration of basic Django functionality.
+<div align="center">
 
+  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![GitHub Issues](https://img.shields.io/github/issues/kevinbowen777/news.svg)](https://github.com/kevinbowen777/news/issues)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+</div>
+
+news is a demonstration of basic Django functionality with a blog-like app.
 
 ---
 ## Features
