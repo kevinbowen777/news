@@ -12,10 +12,12 @@ news is a demonstration of basic Django functionality with a blog-like app.
 
 ---
 ## Features
- - User registration with email verification, password recovery
- - Support for social authentication via GitHub OAuth
+
  - Create, edit, and delete posts
- - Admin management of users and posts
+ - User registration with email verification & social(GitHub) login
+ - Bootstrap4 & crispy-forms decorations
+ - Customizable user profiles with bio, profile picture & country flags
+ - Nox testing sessions (black, linting, pytest, coverage, Sphinx doc generation)
  - django-debug-toolbar available in DEBUG mode
 
 ### Installation
