@@ -1,5 +1,5 @@
-news - A Django news application
-================================
+news
+====
 
 .. toctree::
    :hidden:
@@ -7,16 +7,36 @@ news - A Django news application
 
    license
 
-This repository runs a Django 4.1 news application.
+news is a blog-like application built with the Django 4.1 web framework.
 
 Features
 --------
 
- * Create, edit, and delete posts
- * User registration with email verification & social(GitHub) login
- * Bootstrap4 & crispy-forms decorations
- * Customizable user profiles with bio, profile picture & country flags
- * Nox testing sessions (black, linting, pytest, coverage, Sphinx doc generation)
+ * Application
+
+   * Create, edit, and delete posts
+   * User registration with email verification & social(GitHub) login
+   * Bootstrap4 & crispy-forms decorations
+   * Customizable user profile pages with bio, profile pic, & country flags
+ * Dev/testing
+
+   * basic module testing templates
+   * Coverage reports
+   * Debug-toolbar available
+   * Examples of using Factories & pytest fixtures in account app testing
+   * `shell_plus` with IPython via `django-extensions` package
+   * Nox testing sessions for latest Python 3.9, 3.10, and 3.11
+
+     * black
+     * Sphinx documentaion generation
+     * linting
+       
+       * flake8
+       * flake8-bugbear
+       * flake8-docstrings
+       * flake8-import-order
+       * safety(python package vulnerability testing)
+       * pytest sessions with coverage
 
 Installation
 ------------
