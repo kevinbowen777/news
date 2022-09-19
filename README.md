@@ -10,18 +10,26 @@
 
 news is a blog-like application built with the Django 4.1 web framework.
 
+##### Table of Contents
+ - [Features](#features)
+ - [Installation](#installation)
+ - [Testing](#testing)
+ - [Application Demo](#application-demo)
+ - [Screenshots](#screenshots)
+ - [Reporting Bugs](#reporting-bugs)
+
 ---
-## Features
+
+### Features
 
  - Application
      - Create, edit, and delete posts
      - User registration with email verification & social(GitHub) login
      - Bootstrap4 & crispy-forms decorations
      - Customizable user profile pages with bio, profile pic, & country flags
-     - image carousel
-     - pagination template
+     - Centered account templates(login, registration, verification, etc.)
  - Dev/testing
-     - basic module testing templates
+     - Basic module testing templates
      - Coverage reports
      - Debug-toolbar available
      - Examples of using Factories & pytest fixtures in account app testing
@@ -53,6 +61,7 @@ news is a blog-like application built with the Django 4.1 web framework.
  - Browse to http://127.0.0.1:8000 or http://127.0.0.1:8000/admin/
 
 ---
+
 ### Testing
  - `docker-compose exec web python manage.py test`
  - `coverage run -m pytest`
@@ -61,11 +70,14 @@ news is a blog-like application built with the Django 4.1 web framework.
      - e.g. `nox`, `nox -rs lint-3.11`, `nox -s tests`
 
 ---
-### Live Demo on Heroku:
+
+### Application Demo
+A live application demonstration hosted at Heroku
  - [Newspaper app](https://kbowen-django-news.herokuapp.com/)
 
 ---
-## Screenshots
+
+### Screenshots
 Home Page
 ![Homepage](https://github.com/kevinbowen777/news/blob/master/images/news_home-page.png)
 
@@ -76,8 +88,7 @@ Login Page with GitHub Oauth option
 ![Login](https://github.com/kevinbowen777/news/blob/master/images/news_login.png)
 
 ---
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/news/blob/master/LICENSE)
----
+
 ### Reporting Bugs
 
    Visit the [Issues page](https://github.com/kevinbowen777/news/issues)
