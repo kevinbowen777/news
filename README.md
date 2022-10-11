@@ -44,6 +44,7 @@ news is a blog-like application built with the Django 4.1 web framework.
              - flake8-import-order
          - safety(python package vulnerability testing)
          - pytest sessions with coverage
+     - For additional links to package resources used in this repository, see the [Package Index](docs/package_index.md)
 
 ### Installation
  - `git clone https://github.com/kevinbowen777/news.git`
