@@ -7,6 +7,7 @@ news
 
    license
    package_index
+   create_new_users
 
 .. contents:: Table of Contents
    :local:
