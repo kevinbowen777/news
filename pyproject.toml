@@ -69,6 +69,7 @@ pytest-django = "^4.5.2"
 Pillow = "^9.1.1"
 django-countries = "^7.3.2"
 gunicorn = "~=20.1.0"
+cryptography = "38.0.1"
 
 [tool.poetry.dev-dependencies]
 django-debug-toolbar = "^3.4.0"
