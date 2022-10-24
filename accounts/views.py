@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -28,7 +29,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = "account/user_detail.html"
 
 
-class UserUpdateView(LoginRequiredMixin, UpdateView):
+class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     fields = [
         "name",
         "age",
@@ -37,6 +38,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
         "profile_pic",
     ]
     model = User
+    success_message = "%(name)s's profile has been updated successfully."
 
     # Send the user back to their own page after a successful update
     def get_success_url(self):
