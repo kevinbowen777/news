@@ -38,7 +38,8 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         "profile_pic",
     ]
     model = User
-    success_message = "%(name)s's profile has been updated successfully."
+    success_message = "Your profile was updated successfully."
+    # success_message = "%(name)s's profile has been updated successfully."
 
     # Send the user back to their own page after a successful update
     def get_success_url(self):
