@@ -66,7 +66,6 @@ psycopg2-binary = "^2.9.5"
 Pillow = "^9.3.0"
 django-countries = "^7.3.2"
 gunicorn = "~=20.1.0"
-cryptography = "38.0.1"
 
 [tool.poetry.dev-dependencies]
 django-debug-toolbar = "^3.4.0"
