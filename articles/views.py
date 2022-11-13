@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Article, Comment
 
 
-class ArticleListView(LoginRequiredMixin, ListView):
+class ArticleListView(ListView):
     model = Article
     template_name = "articles/article_list.html"
 
@@ -18,12 +18,23 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
     template_name = "articles/article_detail.html"
 
 
+class ArticleCreateView(LoginRequiredMixin, CreateView):
+    model = Article
+    template_name = "articles/article_new.html"
+    fields = ["title", "body"]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = (
         "title",
         "body",
     )
+    action = "Update"
     template_name = "articles/article_edit.html"
 
     def test_func(self):
@@ -39,16 +50,6 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
-
-
-class ArticleCreateView(LoginRequiredMixin, CreateView):
-    model = Article
-    template_name = "articles/article_new.html"
-    fields = ("title", "body")
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
 
 
 class CommentListView(LoginRequiredMixin, ListView):
