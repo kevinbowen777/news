@@ -86,20 +86,21 @@ news is a blog-like application built with the Django 4.1 web framework.
 ---
 
 ### Application Demo
-A live application demonstration hosted at Heroku
- - [Newspaper app](https://kbowen-django-news.herokuapp.com/)
+A live application demonstration:
+
+TBD
 
 ---
 
 ### Screenshots
 Home Page
-![Homepage](https://github.com/kevinbowen777/news/blob/master/images/news_home-page.png)
+![Homepage](images/news_home-page.png)
 
 Articles Page with drop-down menu shown
-![Articles](https://github.com/kevinbowen777/news/blob/master/images/news_articles.png)
+![Articles](images/news_articles.png)
 
 Login Page with GitHub Oauth option
-![Login](https://github.com/kevinbowen777/news/blob/master/images/news_login.png)
+![Login](images/news_login.png)
 
 ---
 
