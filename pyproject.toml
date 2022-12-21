@@ -35,16 +35,15 @@ omit = [
     "*conftest.py",
     "*/extra*",
 ]
+plugins = [
+    "django_coverage_plugin",
+]
+
+[tool.coverage.django_coverage_plugin]
+template_extensions = "html, txt, tex, email"
 
 [tool.coverage.report]
 show_missing = true
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-skip = ["*.gitignore"]
-extend_skip = ["*.md", "*.json"]
-line_length = 79
 
 [tool.poetry]
 name = "news"
@@ -88,7 +87,7 @@ factory-boy = "3.0.1"
 pip-check = "^2.7"
 pip-audit = "^2.4.3"
 Sphinx = "^5.1.1"
-coverage = {extras = ["toml"], version = "^6.4.1"}
+coverage = {extras = ["toml"], version = "^7.0.0"}
 pytest-cov = "^4.0.0"
 pytest-django = "^4.5.2"
 flake8-import-order = "^0.18.2"
