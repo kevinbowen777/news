@@ -51,7 +51,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "4.1.6"
+Django = "4.1.7"
 django-crispy-forms = "^1.14.0"
 django-allauth = "^0.52.0"
 environs = {extras = ["django"], version = "^9.5.0"}
