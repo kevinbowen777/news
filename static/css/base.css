@@ -16,3 +16,8 @@ h2 a:hover {
   height: 300px;
   width: auto;
 }
+
+.card-body {
+  padding: 5px;
+  margin-bottom: 10px;
+}
