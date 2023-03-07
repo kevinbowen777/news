@@ -46,7 +46,7 @@ class ArticleTests(TestCase):
 
     def test_article_create_view(self):
         self.client.login(email="johndoe@example.com", password="secret")
-        response = self.client.get(
+        response = self.client.post(
             reverse("article_new"),
             {
                 "title": "New title",
@@ -54,29 +54,29 @@ class ArticleTests(TestCase):
                 "author": self.user.id,
             },
         )
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertEqual(Article.objects.last().title, "A good title")
         self.assertEqual(Article.objects.last().body, "Nice body content")
 
     def test_article_update_view(self):
         self.client.login(email="johndoe@example.com", password="secret")
-        response = self.client.get(
+        response = self.client.post(
             reverse("article_edit", args={self.article.id}),
-            # reverse("article_edit", args="1"),
             {
                 "title": "Updated title",
                 "body": "Updated text",
             },
         )
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Article.objects.last().title, "Updated title")
 
     def test_article_delete_view(self):
         self.client.login(email="johndoe@example.com", password="secret")
-        response = self.client.get(
+        response = self.client.post(
             reverse("article_delete", args={self.article.id})
         )
         # response = self.client.get(reverse("article_delete", args="1"))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
 
 class CommentTests(TestCase):
@@ -95,9 +95,40 @@ class CommentTests(TestCase):
 
         self.comment = Comment.objects.create(
             article=self.article,
-            comment="A good comment",
+            comment="This is a comment",
             author=self.user,
         )
+
+    def test_comment_create_view(self):
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.post(
+            reverse("comment_new", args={self.comment.id}),
+            {
+                "comment": "This is a comment",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Comment.objects.first().comment, "This is a comment")
+        self.assertTrue(self.comment.author == self.user)
+
+    def test_comment_update(self):
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.post(
+            reverse("comment_edit", args={self.comment.id}),
+            {
+                "comment": "Updated comment",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        # self.assertEqual(Comment.objects.first().comment, "Updated comment")
+
+    def test_comment_delete(self):
+        self.client.login(email="johndoe@example.com", password="secret")
+        response = self.client.post(
+            reverse("comment_delete", args={self.comment.id}),
+        )
+        self.assertEqual(response.status_code, 302)
+        # self.assertNotContains(Message.objects.all().text, "Updated title")
 
     def test___str__(self):
         assert self.comment.__str__() == self.comment.comment

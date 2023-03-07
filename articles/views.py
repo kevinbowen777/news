@@ -80,7 +80,8 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Comment
     template_name = "comments/comment_delete.html"
-    success_url = reverse_lazy("comment_list")
+    # success_url = reverse_lazy("comment_list")
+    success_url = reverse_lazy("article_list")
 
     def test_func(self):
         obj = self.get_object()
