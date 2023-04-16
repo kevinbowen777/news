@@ -8,7 +8,7 @@
 
 </div>
 
-news is a blog-like application built with the Django 4.1 web framework.
+news is a blog-like application built with the Django 4.2.x web framework.
 
 ##### Table of Contents
  - [Features](#features)
