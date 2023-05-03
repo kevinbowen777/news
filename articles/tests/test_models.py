@@ -1,5 +1,6 @@
-from accounts.tests.factories import UserFactory
 from django.test import TestCase
+
+from accounts.tests.factories import UserFactory
 
 from .factories import ArticleFactory
 

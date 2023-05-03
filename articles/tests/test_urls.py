@@ -1,8 +1,7 @@
-from django.urls import resolve, reverse
 import pytest
+from django.urls import resolve, reverse
 
 from .factories import ArticleFactory
-
 
 pytestmark = pytest.mark.django_db
 

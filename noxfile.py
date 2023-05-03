@@ -64,6 +64,7 @@ def lint(session):
     args = session.posargs or locations
     install_with_constraints(
         session,
+        "ruff",
     )
     session.run("ruff", "check", *args)
 
