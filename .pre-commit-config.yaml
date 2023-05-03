@@ -32,6 +32,15 @@ repos:
     - id: ruff
       args: [ --fix, --exit-non-zero-on-fix ]
 
+  - repo: local
+    hooks:
+    - id: black
+      name: black
+      entry: poetry run black
+      language: system
+      types: [python]
+      exclude: ^.*\b(migrations)\b.*$
+
   - repo: https://github.com/python-poetry/poetry
     rev: '1.4.0'
     hooks:
