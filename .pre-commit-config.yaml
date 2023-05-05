@@ -32,13 +32,11 @@ repos:
     - id: ruff
       args: [ --fix, --exit-non-zero-on-fix ]
 
-  - repo: local
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
     hooks:
     - id: black
       name: black
-      entry: poetry run black
-      language: system
-      types: [python]
       exclude: ^.*\b(migrations)\b.*$
 
   - repo: https://github.com/python-poetry/poetry
@@ -50,12 +48,3 @@ repos:
         args: ["-f", "requirements.txt"]
       # - id: poetry-export
       # args: ["--with", "dev", "-o", "requirements-dev.txt"]
-
-  - repo: local
-    hooks:
-    - id: black
-      name: black
-      entry: poetry run black
-      language: system
-      types: [python]
-      exclude: ^.*\b(migrations)\b.*$
