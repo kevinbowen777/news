@@ -113,7 +113,7 @@ Sphinx = "^7.0.0"
 coverage = {extras = ["toml"], version = "^7.0.0"}
 pytest-cov = "^4.0.0"
 pytest-django = "^4.5.2"
-ruff = "^0.0.265"
+ruff = "^0.0.267"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "config.settings"
