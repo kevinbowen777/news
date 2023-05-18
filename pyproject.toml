@@ -7,7 +7,6 @@ exclude = '''
   | __pycache__
   | .pytest_cache
   | .venv
-  | alembic
   | staticfiles
   | build
   | dist
@@ -65,6 +64,7 @@ classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Environment :: Web Environment",
     "Framework :: Django",
+    "Framework :: Django :: 4.2",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
@@ -109,8 +109,9 @@ safety = "2.4.0b1"
 factory-boy = "^3.2.0"
 pip-check = "^2.7"
 pip-audit = "^2.5"
-Sphinx = "^7.0.0"
-coverage = {extras = ["toml"], version = "^7.0.0"}
+Sphinx = "6.2.1"
+sphinx-rtd-theme = "^1.2.0"
+coverage = { version = "^7.0.0", extras = ["toml"] }
 pytest-cov = "^4.0.0"
 pytest-django = "^4.5.2"
 ruff = "^0.0.267"
