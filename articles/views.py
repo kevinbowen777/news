@@ -7,14 +7,15 @@ from .models import Article, Comment
 
 
 class ArticleListView(ListView):
-    model = Article
-    template_name = "articles/article_list.html"
-
+    queryset = Article.published.all()
+    context_object_name = "articles"
     paginate_by = 3
+    template_name = "articles/article_list.html"
 
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
+    context_object_name = "article"
     template_name = "articles/article_detail.html"
 
 
