@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     # "debug_toolbar",
     "django_extensions",
     # Local
-    "accounts",
-    "articles",
-    "pages",
+    "accounts.apps.AccountsConfig",
+    "articles.apps.ArticlesConfig",
+    "pages.apps.PagesConfig",
 ]
 
 MIDDLEWARE = [
