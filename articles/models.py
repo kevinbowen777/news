@@ -5,6 +5,16 @@ from django.urls import reverse
 from django.utils import timezone
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Article.Status.PUBLISHED)
+
+
+class DraftManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Article.Status.DRAFT)
+
+
 class Article(models.Model):
     class Status(models.TextChoices):
         DRAFT = "DF", "Draft"
@@ -28,6 +38,10 @@ class Article(models.Model):
     status = models.CharField(
         max_length=2, choices=Status.choices, default=Status.DRAFT
     )
+
+    objects = models.Manager()
+    draft = DraftManager()
+    published = PublishedManager()
 
     class Meta:
         ordering = ["-publish"]
