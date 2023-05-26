@@ -26,9 +26,14 @@
     {% endfor %}
   </div>
 
-  <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
-    <a href="{% url 'article_delete' article.pk %}">Delete</a> |
-    <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
+  <p>
+      {% if request.user == article.author %}
+        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+        <a href="{% url 'article_delete' article.pk %}">Delete</a> |
+        <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
+      {% else %}
+        <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
+      {% endif %}
   <p>Back to <a class="btn btn-primary" href="{% url 'article_list' %}">&laquo; All Articles</a></p>
   </p>
 </div>

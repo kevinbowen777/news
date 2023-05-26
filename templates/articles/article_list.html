@@ -18,10 +18,15 @@
       </div>
         <p>
         <a class="btn btn-primary btn-sm" href="{% url 'article_detail' article.pk %}">View article</a>
-        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-        <a href="{% url 'article_delete' article.pk %}">Delete</a> |
-        <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
-        <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+        {% if request.user == article.author %}
+            <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+            <a href="{% url 'article_delete' article.pk %}">Delete</a> |
+            <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
+            <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+        {% else %}
+            <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
+            <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+        {% endif %}
         </p>
     </div>
     <br />
