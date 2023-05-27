@@ -16,7 +16,6 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -28,7 +27,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    # 3rd party
+    # Third-party applications
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     "django_countries",
     # "debug_toolbar",
     "django_extensions",
-    # Local
+    # Local Applications
     "accounts.apps.AccountsConfig",
     "articles.apps.ArticlesConfig",
     "pages.apps.PagesConfig",
@@ -121,6 +120,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
@@ -142,8 +142,6 @@ See also: http://whitenoise.evans.io/en/stable/django.html#troubleshooting-the-w
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-AUTH_USER_MODEL = "accounts.CustomUser"
 
 # django-allauth config
 LOGIN_REDIRECT_URL = "article_list"
@@ -243,6 +241,7 @@ LOGGING = {
 
 # django-debug-toolbar
 
+# Note: disable when running Nox tests
 # Use the following in Docker only:
 # hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 # INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
