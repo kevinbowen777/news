@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Articles{% endblock title %}
 
@@ -6,26 +6,26 @@
 <div class="container">
   <p>
   <h3>Our Article List</h3>
-  {% for article in object_list %}
+  {% for article in articles %}
     <div class="card">
       <div class="card-header">
-        <a class="font-weight-bold" href="{% url 'article_detail' article.pk %}">{{article.title }}</a> &middot;
+          <a class="font-weight-bold" href="{{ article.get_absolute_url }}">{{article.title }}</a> &middot;
         <span class="text-muted">by {{ article.author }} |
-        {{ article.date }}</span>
+        {{ article.publish }}</span>
       </div>
       <div class="card-body">
-        {{ article.body|truncatewords:10 }}
+        {{ article.body|truncatewords:30|linebreaks }}
       </div>
         <p>
-        <a class="btn btn-primary btn-sm" href="{% url 'article_detail' article.pk %}">View article</a>
+        <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
         {% if request.user == article.author %}
-            <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-            <a href="{% url 'article_delete' article.pk %}">Delete</a> |
-            <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
-            <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+            <a href="{% url 'article_edit' article.id %}">Edit</a> |
+            <a href="{% url 'article_delete' article.id %}">Delete</a> |
+            <a href="{% url 'comment_new' article.id %}">Add Comment</a> |
+            <a href="{{ article.get_absolute_url }}">View Comments</a>
         {% else %}
-            <a href="{% url 'comment_new' article.pk %}">Add Comment</a> |
-            <a href="{% url 'article_detail' article.pk %}">View Comments</a>
+            <a href="{% url 'comment_new' article.id %}">Add Comment</a> |
+            <a href="{{ article.get_absolute_url }}">View Comments</a>
         {% endif %}
         </p>
     </div>
