@@ -64,7 +64,7 @@ Sample article list
         author = User.objects.get(username="david"),
         title = "On this day in 1865",
         slug = "on-this-day-in-1865",
-        body = "US President Abraham Lincoln is shot dead in the head by John Wilkes Booth at Ford's Theater in Washington; he dies a day later."
+        body = "US President Abraham Lincoln is shot dead in the head by John Wilkes Booth at Ford's Theater in Washington; he dies a day later.",
         status = "PB",
     )
     Article.objects.create(
