@@ -11,6 +11,11 @@
     <p class="text-muted">posted by {{ article.author }} | {{ article.publish }}</p>
     <p>{{ article.body|linebreaks }}</p>
   </div>
+    <p>
+        <a class="btn btn-success" href="{% url "article_share" article.id %}">
+            Share this article
+        </a>
+    </p>
   <div class="card-footer">
     {% for comment in article.comments.all %}
       <p>
