@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
@@ -57,15 +58,27 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def article_share(request, article_id):
     article = get_object_or_404(Article, id=article_id, status=Article.Status.PUBLISHED)
+    sent = False
+
     if request.method == "POST":
         form = EmailPostForm(request.POST)
         if form.is_valid():
-            # cd = form.cleaned_data
-            pass
+            cd = form.cleaned_data
+            article_url = request.build_absolute_uri(article.get_absolute_url())
+            subject = f"{cd['name']} recommends you read " f"{article.title}"
+            message = (
+                f"Read {article.title} at {article_url}\n\n"
+                f"{cd['name']}'s comments: {cd['comments']}"
+            )
+            send_mail(subject, message, "kevin.bowen@gmail.com", [cd["to"]])
+            sent = True
+
     else:
         form = EmailPostForm()
     return render(
-        request, "articles/article_share.html", {"article": article, "form": form}
+        request,
+        "articles/article_share.html",
+        {"article": article, "form": form, "sent": sent},
     )
 
 
