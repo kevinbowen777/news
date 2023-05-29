@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Share an article{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <p>
+  {% if sent %}
+    <h2>E-mail successfully sent!</h2>
+    <p>
+      The article "{{ article.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+      <p>
+      <a class="btn btn-info" href="{{ article.get_absolute_url }}">Return to article</a>
+      <a class="btn btn-info" href="{% url 'article_list' %}">Return to main article list</a>
+      </p>
+    </p>
+  {% else %}
+    <h2>Share "{{ article.title }}" by email</h2>
+    <form class="col-md-6" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input class="btn btn-success" type="submit" value="Send email">
+    </form>
+  {% endif %}
+  </p>
+</div>
+{% endblock content %}
