@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
+from .forms import EmailPostForm
 from .models import Article, Comment
 
 
@@ -51,6 +53,20 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
+
+
+def article_share(request, article_id):
+    article = get_object_or_404(Article, id=article_id, status=Article.Status.PUBLISHED)
+    if request.method == "POST":
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # cd = form.cleaned_data
+            pass
+    else:
+        form = EmailPostForm()
+    return render(
+        request, "articles/article_share.html", {"article": article, "form": form}
+    )
 
 
 class CommentListView(LoginRequiredMixin, ListView):
