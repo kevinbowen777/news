@@ -36,7 +36,7 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(
-        max_length=2, choices=Status.choices, default=Status.DRAFT
+        max_length=2, choices=Status.choices, default=Status.PUBLISHED
     )
 
     objects = models.Manager()
@@ -52,7 +52,7 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):  # new
+    def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
