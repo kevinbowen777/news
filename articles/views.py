@@ -9,6 +9,25 @@ from .forms import EmailPostForm
 from .models import Article, Comment
 
 
+def article_list(request):
+    articles = Article.published.all()
+    return render(request, "articles/article_list.html", {"articles": articles})
+
+
+def article_detail(request, year, month, day, article):
+    article = get_object_or_404(
+        Article,
+        status=Article.Status.PUBLISHED,
+        slug=article,
+        publish__year=year,
+        publish__month=month,
+        publish__day=day,
+    )
+
+    return render(request, "articles/article_detail.html", {"article": article})
+
+
+"""
 class ArticleListView(ListView):
     queryset = Article.published.all()
     context_object_name = "articles"
@@ -20,6 +39,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
     context_object_name = "article"
     template_name = "articles/article_detail.html"
+"""
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
