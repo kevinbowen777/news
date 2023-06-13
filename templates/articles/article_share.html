@@ -17,10 +17,11 @@
     </p>
   {% else %}
     <h2>Share "{{ article.title }}" by email</h2>
-    <form class="col-md-6" method="post">
+    <form method="post">
       {% csrf_token %}
       {{ form|crispy }}
       <input class="btn btn-success" type="submit" value="Send email">
+      <a class="btn btn-info" href="javascript:window.history.back()">Cancel</a>
     </form>
   {% endif %}
   </p>
