@@ -71,8 +71,16 @@
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
           {% endfor %}
       {% endif %}
-      {% block content %}
-      {% endblock content %}
+      <div id="content">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      <div id="sidebar">
+          <h5>Welcome to the news!</h5>
+          <p>
+            Some of the news that didn't get printed.
+          </p>
+      </div>
       <!-- Pagination -->
         <ul>
         {% if page_obj.has_other_pages %}
@@ -106,7 +114,6 @@
   <!-- JavaScript -->
   <!-- Begin footer -->
   <div class="container">
-  <div class="content"></div>
   <footer>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
     <div class="col-md-12 col-sm-12 col-sm-push-6">

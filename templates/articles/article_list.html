@@ -16,7 +16,7 @@
       <div class="card-body">
         {{ article.body|truncatewords:30|linebreaks }}
       </div>
-        <p>
+        <div class="card-footer">
         <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
         {% if request.user == article.author %}
             <a href="{% url 'article_edit' article.id %}">Edit</a> |
@@ -27,7 +27,7 @@
             <a href="{% url 'comment_new' article.id %}">Add Comment</a> |
             <a href="{{ article.get_absolute_url }}">View Comments</a>
         {% endif %}
-        </p>
+        </div>
     </div>
     <br />
   {% endfor %}
