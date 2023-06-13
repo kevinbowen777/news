@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.mail import send_mail
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
@@ -10,7 +11,15 @@ from .models import Article, Comment
 
 
 def article_list(request):
-    articles = Article.published.all()
+    article_list = Article.published.all()
+    paginator = Paginator(article_list, 3)
+    page_number = request.GET.get("page", 1)
+    try:
+        articles = paginator = paginator.page(page_number)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
     return render(request, "articles/article_list.html", {"articles": articles})
 
 

@@ -81,30 +81,6 @@
             Some of the news that didn't get printed.
           </p>
       </div>
-      <!-- Pagination -->
-        <ul>
-        {% if page_obj.has_other_pages %}
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-            <li><a class="btn btn-info btn-sm mr-1" href="?page={{ page_obj.previous_page_number }}">&laquo; Previous</a></li>
-            {% else %}
-            <li class="btn btn-info btn-sm disabled mr-1"><span>&laquo; Previous</span></li>
-            {% endif %}
-            {% for i in page_obj.paginator.page_range %}
-            {% if page_obj.number == i %}
-                <li class="btn btn-info btn-sm active mr-1"><span> {{ i }} <span class="sr-only">(current)</span></span></li>
-            {% else %}
-                <li><a class="btn btn-info btn-sm mr-1" href="?page={{ i }}">{{ i }}</a></li>
-            {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-            <li><a class="btn btn-info btn-sm" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a></li>
-            {% else %}
-            <li class="btn btn-info btn-sm disabled"><span>Next &raquo;</span></li>
-            {% endif %}
-        </ul>
-        {% endif %}
-        </ul>
   </main>
 
   <!-- Bootstrap4 JavaScript -->
@@ -113,8 +89,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
   <!-- JavaScript -->
   <!-- Begin footer -->
-  <div class="container">
-  <footer>
+  <div id="footer">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
     <div class="col-md-12 col-sm-12 col-sm-push-6">
         <ul class="navbar-nav ml-auto">
@@ -141,7 +116,6 @@
         </ul>
     </div>
   </nav>
-  </footer>
   </div>
   <!-- End footer -->
 </body>

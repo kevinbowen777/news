@@ -1,0 +1,20 @@
+<!-- Pagination -->
+<div class="pagination">
+    {% if page.has_previous %}
+      <li><a class="btn btn-info btn-sm mr-1" href="?page={{ page.previous_page_number }}">&laquo; Previous</a></li>
+    {% else %}
+      <li class="btn btn-info btn-sm disabled mr-1"><span>&laquo; Previous</span></li>
+    {% endif %}
+    {% for i in page.paginator.page_range %}
+      {% if page.number == i %}
+        <li class="btn btn-info btn-sm active mr-1"><span> {{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a class="btn btn-info btn-sm mr-1" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page.has_next %}
+      <li><a class="btn btn-info btn-sm" href="?page={{ page.next_page_number }}">Next &raquo;</a></li>
+    {% else %}
+      <li class="btn btn-info btn-sm disabled"><span>Next &raquo;</span></li>
+    {% endif %}
+</div>

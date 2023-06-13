@@ -16,22 +16,6 @@ body {
   height: 60px;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-}
-
-h1 {
-  color: purple;
-}
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
-}
-
 #content {
     float:left;
     width:65%;
@@ -47,6 +31,7 @@ body {
     float:right;
     font-size: 12px;
     width:30%;
+    margin-top: 10px;
     margin-right: -10px;
     padding:10px;
     background:#deb887;
@@ -54,16 +39,15 @@ body {
     height:100%;
 }
 
+#footer {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+}
+
 /* prevents footer from blocking body content */
 .clear {
   clear: both;
-  height: 60px;
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   height: 60px;
 }
 
@@ -85,7 +69,7 @@ h2 {
 
 h3 {
     font-weight:normal;
-    margin:30px 0 0;
+    margin:30px 0 3px 0;
 }
 
 ul.slim {
@@ -161,7 +145,7 @@ li.slim {
 
 /* pagination */
 .pagination {
-    margin:40px 0;
+    margin: -20px 0;
     font-weight:bold;
 }
 
