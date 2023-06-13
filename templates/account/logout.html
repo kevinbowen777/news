@@ -9,7 +9,7 @@
   <p>
   <h2>Log Out</h2>
     <p>Are you sure you want to log out?</p>
-    <form class="col-md-4" method="post" action="{% url 'account_logout' %}">
+    <form class="col-md-6" method="post" action="{% url 'account_logout' %}">
       {% csrf_token %}
       {{ form|crispy }}
       <button class="btn btn-danger" type="submit">Log Out</button>
