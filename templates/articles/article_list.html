@@ -22,11 +22,7 @@
         {% if request.user == article.author %}
             <a href="{% url 'article_edit' article.id %}">Edit</a> |
             <a href="{% url 'article_delete' article.id %}">Delete</a> |
-            <a href="{% url 'comment_add' article.id %}">Add Comment</a> |
-            <a href="{{ article.get_absolute_url }}">View Comments</a>
         {% else %}
-            <a href="{% url 'comment_add' article.id %}">Add Comment</a> |
-            <a href="{{ article.get_absolute_url }}">View Comments</a>
         {% endif %}
         </div>
     </div>
