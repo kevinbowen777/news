@@ -149,7 +149,11 @@ li.slim {
     font-weight:bold;
 }
 
-p.tags {
+.text-muted {
+  font-size: 14px;
+}
+
+.tags {
     color:#4b0082;
     font-family: georgia, serif;
     font-size: 12px;
