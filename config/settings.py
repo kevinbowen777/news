@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django_countries",
     # "debug_toolbar",
     "django_extensions",
+    "taggit",
     # Local Applications
     "accounts.apps.AccountsConfig",
     "articles.apps.ArticlesConfig",
