@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Article Detail - {{ article.title }}{% endblock title %}
+{% block title %} {{ article.title }}{% endblock title %}
 
 {% block content %}
 <div class="container">
@@ -9,37 +9,37 @@
   <div class="article-entry">
     <h2>{{ article.title }}</h2>
     <p class="text-muted">posted by {{ article.author }} | {{ article.publish }}</p>
-    <p>{{ article.body|linebreaks }}</p>
+    <p>{{ article.body|linebreaksbr }}</p>
   </div>
     <p>
         <a class="btn btn-success" href="{% url "article_share" article.id %}">
             Share this article
         </a>
+    {% if request.user == article.author %}
+      <a class="btn btn-info" href="{% url 'article_edit' article.id %}">Edit Article</a>
+      <a class="btn btn-danger" href="{% url 'article_delete' article.id %}">Delete Article</a>
+    {% else %}
+    {% endif %}
     </p>
-  <div class="card-footer">
-    {% for comment in article.comments.all %}
-      <p>
-      <ul>
-        <span class="font-weight-bold">
-            <li><a href="{% url 'comment_detail' comment.pk %}"i>{{ comment }}</a> &middot;
-        </span>
-        <span class="text-muted">by {{ comment.author }} &middot; {{ comment.date }}</span>
-      </ul>
-      </p>
+    {% with comments.count as total_comments %}
+      <h4>
+          {{ total_comments }} comment{{ total_comments|pluralize }}
+      </h4>
+    {% endwith %}
+    {% for comment in comments %}
+      <div class="comment">
+        <p class="info">
+        &middot Comment {{ forloop.counter }} by {{ comment.name }} &middot {{ comment.created }} 
+        </p>
+        {{ comment.body|linebreaks }}
+      </div>
     {% empty %}
       <p class="text-muted"><em>No comments have been posted yet.</em></p>
     {% endfor %}
-  </div>
+      {% include "articles/includes/comment_form.html" %}
 
-  <p>
-      {% if request.user == article.author %}
-        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-        <a href="{% url 'article_delete' article.pk %}">Delete</a> |
-        <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
-      {% else %}
-        <a href="{% url 'comment_new' article.pk %}">Add Comment</a></p>
-      {% endif %}
   <p>Back to <a class="btn btn-primary" href="{% url 'article_list' %}">&laquo; All Articles</a></p>
   </p>
 </div>
+<div class="clear"></div>
 {% endblock content %}

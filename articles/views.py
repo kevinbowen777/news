@@ -119,13 +119,13 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Comment
     fields = (
         "article",
-        "comment",
+        "body",
     )
     template_name = "comments/comment_edit.html"
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.name == self.request.user
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -135,7 +135,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.name == self.request.user
 
 
 @require_POST
