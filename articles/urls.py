@@ -4,13 +4,13 @@ from .views import (
     ArticleCreateView,
     ArticleDeleteView,
     ArticleUpdateView,
-    CommentCreateView,
     CommentDeleteView,
     CommentDetailView,
     CommentUpdateView,
     article_detail,
     article_list,
     article_share,
+    comment_add,
 )
 
 urlpatterns = [
@@ -25,9 +25,9 @@ urlpatterns = [
     path("<int:article_id>/share/", article_share, name="article_share"),
     path("<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"),
     path(
-        "<int:pk>/comment/add/",
-        CommentCreateView.as_view(),
-        name="comment_new",
+        "<int:article_id>/comment/add/",
+        comment_add,
+        name="comment_add",
     ),
     path(
         "comment/<int:pk>/detail/",
