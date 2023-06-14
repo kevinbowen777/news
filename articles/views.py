@@ -57,6 +57,8 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = (
         "title",
+        "status",
+        "tags",
         "body",
     )
     action = "Update"
