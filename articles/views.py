@@ -6,13 +6,18 @@ from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from taggit.models import Tag
 
 from .forms import CommentForm, EmailPostForm
 from .models import Article, Comment
 
 
-def article_list(request):
+def article_list(request, tag_slug=None):
     article_list = Article.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        article_list = article_list.filter(tags__in=[tag])
     paginator = Paginator(article_list, 3)
     page_number = request.GET.get("page", 1)
     try:
@@ -21,7 +26,9 @@ def article_list(request):
         articles = paginator.page(1)
     except EmptyPage:
         articles = paginator.page(paginator.num_pages)
-    return render(request, "articles/article_list.html", {"articles": articles})
+    return render(
+        request, "articles/article_list.html", {"articles": articles, "tag": tag}
+    )
 
 
 def article_detail(request, year, month, day, article):
