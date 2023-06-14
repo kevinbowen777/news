@@ -9,9 +9,10 @@
   {% for article in articles %}
     <div class="card">
       <div class="card-header">
-          <a class="font-weight-bold" href="{{ article.get_absolute_url }}">{{article.title }}</a> &middot;
-        <span class="text-muted">by {{ article.author }} |
-        {{ article.publish }}</span>
+        <a class="font-weight-bold" href="{{ article.get_absolute_url }}">{{article.title }}</a> &middot;
+        <span class="text-muted">by {{ article.author }} | {{ article.publish }}</span>
+        <br>
+        <span class="tags">Tags: {{ article.tags.all|join:", " }}</span>
       </div>
       <div class="card-body">
         {{ article.body|truncatewords:30|linebreaks }}
