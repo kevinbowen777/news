@@ -3,10 +3,11 @@ from django.core.mail import send_mail
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from .forms import EmailPostForm
+from .forms import CommentForm, EmailPostForm
 from .models import Article, Comment
 
 
@@ -32,23 +33,14 @@ def article_detail(request, year, month, day, article):
         publish__month=month,
         publish__day=day,
     )
+    comments = article.comments.filter(active=True)
+    form = CommentForm()
 
-    return render(request, "articles/article_detail.html", {"article": article})
-
-
-"""
-class ArticleListView(ListView):
-    queryset = Article.published.all()
-    context_object_name = "articles"
-    paginate_by = 3
-    template_name = "articles/article_list.html"
-
-
-class ArticleDetailView(LoginRequiredMixin, DetailView):
-    model = Article
-    context_object_name = "article"
-    template_name = "articles/article_detail.html"
-"""
+    return render(
+        request,
+        "articles/article_detail.html",
+        {"article": article, "comments": comments, "form": form},
+    )
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
@@ -127,26 +119,42 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Comment
     fields = (
         "article",
-        "comment",
+        "body",
     )
     template_name = "comments/comment_edit.html"
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.name == self.request.user
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Comment
     template_name = "comments/comment_delete.html"
-    # success_url = reverse_lazy("comment_list")
     success_url = reverse_lazy("article_list")
 
     def test_func(self):
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.name == self.request.user
 
 
+@require_POST
+def comment_add(request, article_id):
+    article = get_object_or_404(Article, id=article_id, status=Article.Status.PUBLISHED)
+    comment = None
+    form = CommentForm(data=request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.article = article
+        comment.save()
+    return render(
+        request,
+        "comments/comment_add.html",
+        {"article": article, "form": form, "comment": comment},
+    )
+
+
+"""
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = "comments/comment_new.html"
@@ -155,3 +163,4 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+"""
