@@ -1,5 +1,7 @@
+import markdown
 from django import template
 from django.db.models import Count
+from django.utils.safestring import mark_safe
 
 from ..models import Article
 
@@ -22,3 +24,8 @@ def total_articles():
 def show_latest_articles(count=5):
     latest_articles = Article.published.order_by("-publish")[:count]
     return {"latest_articles": latest_articles}
+
+
+@register.filter(name="markdown")
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))  # noqa: S308
