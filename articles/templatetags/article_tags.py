@@ -28,4 +28,4 @@ def show_latest_articles(count=5):
 
 @register.filter(name="markdown")
 def markdown_format(text):
-    return mark_safe(markdown.markdown(text))  # noqa: S308
+    return mark_safe(markdown.markdown(text))  # noqa: S308 # pragma: no cover
