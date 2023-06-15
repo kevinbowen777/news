@@ -1,8 +1,8 @@
-from django.test import SimpleTestCase
+from django.test import TestCase
 from django.urls import reverse
 
 
-class ContactFormTests(SimpleTestCase):
+class ContactFormTests(TestCase):
     def setUp(self):
         url = reverse("contact")
         self.response = self.client.get(url)
