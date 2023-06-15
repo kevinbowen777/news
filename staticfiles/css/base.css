@@ -1,15 +1,107 @@
-h1 {
-  color: purple;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
+  margin-bottom: 5%;
+  background: #faebd7;
 }
 
-h2 a:hover {
-  color: red;
-  font-weight: 400;
+/* prevents footer from blocking body content */
+.clear {
+  clear: both;
+  height: 10%;
+}
+
+#content {
+    float:left;
+    width:65%;
+    padding:0 0 0 30px;
+}
+
+.jumbotron {
+  border-radius: 25px;
+  margin-top: 25px;
+}
+
+.sidebar {
+    float:right;
+    font-size: 12px;
+    width:30%;
+    margin-top: 10px;
+    margin-right: -10px;
+    padding:10px;
+    background:#deb887;
+    border-radius: 10px;
+    height:100%;
+}
+
+
+/* Sidebar links */
+.sidebar a {
+  /* display: block; */
+  color: #8b0000;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #000080;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #f4a460;
+  border-radius: 5px;
+  color: white;
+}
+
+#footer {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+}
+
+/* prevents footer from blocking body content */
+.clear {
+  clear: both;
+  height: 60px;
+}
+
+a {
+    color:#00abff;
+    text-decoration:none;
+}
+
+h1 {
+    font-weight:normal;
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+}
+
+h2 {
+    font-weight:normal;
+    margin:30px 0 0;
+}
+
+h3 {
+    font-weight:normal;
+    margin:30px 0 3px 0;
+}
+
+ul.slim {
+  list-style-type: circle; /* Remove bullets */
+  /* padding: 0;  Remove padding */
+  margin: 0; /* Remove margins */
+  margin-bottom: 2rem;
+}
+
+li.slim {
+  margin: -10px;
 }
 
 .profile_pic {
@@ -17,7 +109,74 @@ h2 a:hover {
   width: auto;
 }
 
+.card-header {
+  padding: 5px;
+  margin-bottom: 3px;
+  background: #f0e69c;
+}
+
 .card-body {
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
+  background: #f0e68c;
+}
+
+.card-footer {
+  padding: 5px;
+  background: #f0e68c;
+}
+
+.article-entry {
+  margin-bottom: 2rem;
+}
+
+.article-entry h2 {
+  margin: 0.5rem 0;
+}
+
+.article-entry h2 a,
+.article-entry h2 a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+.article-entry p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.article-entry h2 a:hover {
+  color: red;
+}
+
+/* comments */
+.comment {
+  padding: 5px;
+}
+
+.comment:nth-child(even) {
+  background: #f0e68c;
+}
+
+.comment .info {
+  font-weight: bold;
+  font-size: 12px;
+  color: #666;
+}
+
+/* pagination */
+.pagination {
+    margin: -20px 0;
+    font-weight:bold;
+}
+
+.text-muted {
+  font-size: 14px;
+}
+
+.tags {
+    color:#4b0082;
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic;
 }

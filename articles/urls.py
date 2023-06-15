@@ -1,5 +1,6 @@
 from django.urls import path
 
+from .feeds import LatestArticlesFeed
 from .views import (
     ArticleCreateView,
     ArticleDeleteView,
@@ -23,6 +24,7 @@ urlpatterns = [
     path("new/", ArticleCreateView.as_view(), name="article_new"),
     path("<int:pk>/edit/", ArticleUpdateView.as_view(), name="article_edit"),
     path("<int:article_id>/share/", article_share, name="article_share"),
+    path("feed/", LatestArticlesFeed(), name="article_feed"),
     path("<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"),
     path("<slug:tag_slug>/", article_list, name="article_list_by_tag"),
     path(
