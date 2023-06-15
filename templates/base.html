@@ -82,6 +82,14 @@
             Some of the news that didn't get printed.
             There have been {% total_articles %} articles written so far.
           </p>
+          <p>
+            <a href="{% url "article_feed" %}">
+                <img src="{% static 'images/rss-24.png' %}">
+            </a>
+            <a href="{% url "article_feed" %}">
+                Subscribe to the news RSS feed
+            </a>
+          </p>
           <h5>Recent articles</h5>
           {% show_latest_articles %}
           <h5>Most commented articles</h5>
