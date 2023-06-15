@@ -27,7 +27,7 @@ body {
   margin-top: 25px;
 }
 
-#sidebar {
+.sidebar {
     float:right;
     font-size: 12px;
     width:30%;
@@ -37,6 +37,27 @@ body {
     background:#deb887;
     border-radius: 10px;
     height:100%;
+}
+
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: #8b0000;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #000080;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #f4a460;
+  border-radius: 5px;
+  color: white;
 }
 
 #footer {

@@ -1,4 +1,5 @@
 {% load static %}
+{% load article_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,11 +76,23 @@
         {% block content %}
         {% endblock content %}
       </div>
-      <div id="sidebar">
+      <div class="sidebar">
           <h5>Welcome to the news!</h5>
           <p>
             Some of the news that didn't get printed.
+            There have been {% total_articles %} articles written so far.
           </p>
+          <h5>Recent articles</h5>
+          {% show_latest_articles %}
+          <h5>Most commented articles</h5>
+          {% get_most_commented_articles as most_commented_articles %}
+          <ul>
+            {% for article in most_commented_articles %}
+            <li>
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
       </div>
   </main>
 
