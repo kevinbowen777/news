@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load article_tags %}
 
 {% block title %}Articles{% endblock title %}
 
@@ -8,7 +9,7 @@
   <h3>Latest News Articles</h3>
   {% if tag %}
   <p>
-    <h2>Posts tagged with "{{ tag.name }}"</h2>
+    <h2>Articles tagged with "{{ tag.name }}"</h2>
   </p>
   {% endif %}
   {% for article in articles %}
@@ -27,7 +28,7 @@
         </p>
       </div>
       <div class="card-body">
-        {{ article.body|truncatewords:30|linebreaks }}
+        {{ article.body|markdown|truncatewords:30 }}
       </div>
         <div class="card-footer">
         <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
