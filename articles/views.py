@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.postgres.search import SearchVector
 from django.core.mail import send_mail
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Count
@@ -9,7 +10,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from taggit.models import Tag
 
-from .forms import CommentForm, EmailPostForm
+from .forms import CommentForm, EmailPostForm, SearchForm
 from .models import Article, Comment
 
 
@@ -161,6 +162,30 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return obj.name == self.request.user
 
 
+def post_search(request):
+    form = SearchForm()
+    query = None
+    results = []
+
+    if "query" in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+            results = Article.published.annotate(
+                search=SearchVector("title", "body"),
+            ).filter(search=query)
+
+    return render(
+        request,
+        "articles/search.html",
+        {
+            "form": form,
+            "query": query,
+            "results": results,
+        },
+    )
+
+
 @require_POST
 def comment_add(request, article_id):
     article = get_object_or_404(Article, id=article_id, status=Article.Status.PUBLISHED)
@@ -175,15 +200,3 @@ def comment_add(request, article_id):
         "comments/comment_add.html",
         {"article": article, "form": form, "comment": comment},
     )
-
-
-"""
-class CommentCreateView(LoginRequiredMixin, CreateView):
-    model = Comment
-    template_name = "comments/comment_new.html"
-    fields = ("article", "comment")
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-"""
