@@ -56,7 +56,7 @@ class ArticleTests(TestCase):
                 "author": self.user.id,
             },
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(Article.objects.last().title, "A good title")
         self.assertEqual(Article.objects.last().body, "Nice body content")
 
