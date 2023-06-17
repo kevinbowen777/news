@@ -162,7 +162,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return obj.name == self.request.user
 
 
-def post_search(request):
+def article_search(request):
     form = SearchForm()
     query = None
     results = []
