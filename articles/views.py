@@ -67,7 +67,7 @@ def article_detail(request, year, month, day, article):
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = "articles/article_new.html"
-    fields = ["title", "body"]
+    fields = ["title", "tags", "status", "body"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
