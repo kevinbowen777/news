@@ -33,6 +33,11 @@
     {% if user.is_authenticated %}
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+         <form class="navbar-form navbar-left form-inline mt-2 mt-md-0" action="{% url 'article_search' %}" method="get">
+          <input name="query" class="form-control mt-2 mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
+          </form>
+        </li>
+        <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#"
           id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -89,6 +94,9 @@
             <a href="{% url "article_feed" %}">
                 Subscribe to the news RSS feed
             </a>
+          </p>
+          <p>
+            <a href="{% url "article_search" %}">Article Search</a>
           </p>
           <h5>Recent articles</h5>
           {% show_latest_articles %}
