@@ -17,4 +17,6 @@ class EmailPostForm(forms.Form):
 
 
 class SearchForm(forms.Form):
-    query = forms.CharField()
+    query = forms.CharField(
+        label="", widget=forms.TextInput(attrs={"placeholder": "Search..."})
+    )
