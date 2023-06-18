@@ -11,7 +11,7 @@
   <!-- Bootstrap4 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <!-- CSS -->
-  <link rel='stylesheet' href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -96,6 +96,9 @@
             </a>
           </p>
           <p>
+            <a href="{% url "article_search" %}">
+                <img class="ml-2 mr-2" src="{% static 'images/search.svg' %}">
+            </a>
             <a href="{% url "article_search" %}">Article Search</a>
           </p>
           <h5>Recent articles</h5>

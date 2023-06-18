@@ -10,23 +10,27 @@
     <h2>Articles containing "{{ query }}"</h2>
     <h3>
       {% with results.count as total_results %}
-        Found {{ total_results }} result{{ total_results|pluralize }}
+        Found {{ total_results }} result{{ total_results|pluralize }}:
       {% endwith %}
     </h3>
+    <br>
+    <div class="container">
     {% for article in results %}
       <h4>
         <a href="{{ article.get_absolute_url }}">
           {{ article.title }}
         </a>
       </h4>
-      {{ article.body| markdown|truncatewords_html:12 }}
+      {{ article.body|markdown|truncatewords_html:12 }}
     {% empty %}
       <p class="text-muted"><em>There are no results for your query.</em></p>
     {% endfor %}
+    <br>
+    </div>
     <p><a class="btn btn-success" href="{% url "article_search" %}">Search again</a></p>
     {% else %}
       <h2>Search for articles</h2>
-      <form method="get">
+      <form class="mt-2" method="get">
         {{ form|crispy }}
         <input class="btn btn-success" type="submit" value="Search">
       </form>
