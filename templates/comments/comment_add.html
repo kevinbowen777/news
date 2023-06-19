@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-
-{% block title %}Add a comment - {{ post.title }}{% endblock title %}
+{% block title %}
+  Add a comment - {{ post.title }}
+{% endblock title %}
 
 {% block content %}
-<div class="container">
-  <p>
-  {% if comment %}
-    <h3>Your comment has been added.</h3>
-    <p><a class="btn btn-success mt-2" href="{{article.get_absolute_url }}">Back to the article</a></p>
-  {% else %}
-    {% include "articles/includes/comment_form.html" %}
-  {% endif %}
-  </p>
-</div>
+  <div class="container">
+    <p>
+      {% if comment %}
+        <h3>Your comment has been added.</h3>
+        <p>
+          <a class="btn btn-success mt-2" href="{{ article.get_absolute_url }}">Back to the article</a>
+        </p>
+      {% else %}
+        {% include "articles/includes/comment_form.html" %}
+      {% endif %}
+    </p>
+  </div>
 {% endblock content %}

@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}About Page{% endblock %}
+{% block title %}
+  About Page
+{% endblock title %}
 
 {% block content %}
-<div class="container">
-  <p>
-  <h2>About Page</h2>
-  <p>This news application is an example of using the Django web framework to
-  build a simple website. It supports user registration and verification. Once
-  registered, users are able to create, edit, and delete posts.</p>
-  <p>This application also demonstrates the use of Bootstrap templates and
-  Crispy Forms to create a pleasing, consistent visual design.
-  <p>This project was originally based off an exercise from the excellent,
-  introductory book written by Eric Matthes, "Python Crash Course". If you
-  would like to obtain a copy of this software project, please visit the
-  site: https://github.com/kevinbowen777/news .
-  </p>
-  </p>
-</div>
+  <div class="container">
+    <p>
+      <h2>About Page</h2>
+      <p>
+        This news application is an example of using the Django web framework to
+        build a simple website. It supports user registration and verification. Once
+        registered, users are able to create, edit, and delete posts.
+      </p>
+      <p>
+        This application also demonstrates the use of Bootstrap templates and
+        Crispy Forms to create a pleasing, consistent visual design.
+      </p>
+      <p>
+        This project was originally based off an exercise from the excellent,
+        introductory book written by Eric Matthes, "Python Crash Course". If you
+        would like to obtain a copy of this software project, please visit the
+        site: https://github.com/kevinbowen777/news .
+      </p>
+    </p>
+  </div>
 {% endblock content %}
