@@ -9,7 +9,7 @@
   <form action="" method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ comment.comment }}"?</p>
     <button class="btn btn-danger ml-2" type="submit">Confirm</button>
-    <a class="btn btn-info" href="javascript:window.history.back()">Cancel</a>
+    <a class="btn btn-info" href="#" onclick="window.history.back()">Cancel</a>
   </form>
   </p>
 </div>
