@@ -1,33 +1,37 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-  <p>
-  <div class="article-entry">
-    <h2>{{ object.comment }}</h2>
-    <p class="text-muted">posted by {{ object.author }} | {{ object.date }}</p>
-    <p>{{ object.body }}</p>
-  </div>
-  <div class="card-footer">
-    {% for comment in object.comments.all %}
-      <p>
-      <ul>
-        <span class="font-weight-bold">
-            <li>  {{ comment }} &middot;
-        </span>
-        <span class="text-muted">by {{ comment.author }} &middot; {{ comment.date }}</span>
-      </ul>
-      </p>
-    {% empty %}
-      <p>No comments have been posted yet.</p>
-    {% endfor %}
-  </div>
+  <div class="container">
+    <p>
+      <div class="article-entry">
+        <h2>{{ object.comment }}</h2>
+        <p class="text-muted">posted by {{ object.author }} | {{ object.date }}</p>
+        <p>{{ object.body }}</p>
+      </div>
+      <div class="card-footer">
+        {% for comment in object.comments.all %}
+          <p>
+            <ul>
+              <span class="font-weight-bold">
+                <li>{{ comment }} ·</li>
+              </span>
+              <span class="text-muted">by {{ comment.author }} · {{ comment.date }}</span>
+            </ul>
+          </p>
+        {% empty %}
+          <p>No comments have been posted yet.</p>
+        {% endfor %}
+      </div>
 
-  <p><a href="{% url 'comment_edit' comment.pk %}">Edit Comment</a> |
-    <a href="{% url 'comment_delete' comment.pk %}">Delete Comment</a> |
-    <a href="{% url 'comment_new' comment.pk %}">Add Comment</a></p>
-  <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
-  </p>
-</div>
+      <p>
+        <a href="{% url 'comment_edit' comment.pk %}">Edit Comment</a> |
+        <a href="{% url 'comment_delete' comment.pk %}">Delete Comment</a> |
+        <a href="{% url 'comment_new' comment.pk %}">Add Comment</a>
+      </p>
+      <p>
+        Back to <a href="{% url 'article_list' %}">All Articles</a>.
+      </p>
+    </p>
+  </div>
 {% endblock content %}

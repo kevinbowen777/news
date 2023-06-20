@@ -2,71 +2,71 @@
 {% load article_tags %}
 {% load crispy_forms_tags %}
 
-{% block title %} {{ article.title }}{% endblock title %}
+{% block title %}
+  {{ article.title }}
+{% endblock title %}
 
 {% block content %}
-<div class="container">
-  <p>
-  <div class="article-entry">
-    <h2>{{ article.title }}</h2>
-      <p class="text-muted">posted by {{ article.author }} | {{ article.publish }}</p>
-        <p class="tags">
-        Tags:
-        {% for tag in article.tags.all %}
-            <a href="{% url "article_list_by_tag" tag.slug %}">
-            {{ tag.name }}
-            </a>
-            {% if not forloop.last %}, {% endif %}
-        {% endfor %}
-        </p>
-    <p>{{ article.body|markdown }}</p>
-  </div>
+  <div class="container">
     <p>
-        <a class="btn btn-success" href="{% url "article_share" article.id %}">
-            Share this article
-        </a>
-    {% if request.user == article.author %}
-      <a class="btn btn-info" href="{% url 'article_edit' article.id %}">Edit Article</a>
-      <a class="btn btn-danger" href="{% url 'article_delete' article.id %}">Delete Article</a>
-    {% else %}
-    {% endif %}
-    </p>
+      <div class="article-entry">
+        <h2>{{ article.title }}</h2>
+        <p class="text-muted">posted by {{ article.author }} | {{ article.publish }}</p>
+        <p class="tags">
+          Tags:
+          {% for tag in article.tags.all %}
+            <a href="{% url "article_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+            {% if not forloop.last %},{% endif %}
+          {% endfor %}
+        </p>
+        <p>{{ article.body|markdown }}</p>
+      </div>
+      <p>
+        <a class="btn btn-success" href="{% url "article_share" article.id %}">Share this article</a>
+        {% if request.user == article.author %}
+          <a class="btn btn-info" href="{% url 'article_edit' article.id %}">Edit Article</a>
+          <a class="btn btn-danger" href="{% url 'article_delete' article.id %}">Delete Article</a>
+        {% else %}
+        {% endif %}
+      </p>
 
-    <div class="container">
+      <div class="container">
         <h3>Similar Articles</h3>
         <ul>
-        {% for article in similar_articles %}
-        <p>
-        <li class="slim">
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        </li>
-        </p>
-        {% empty %}
-        <p class="text-muted"><em>There are no similar articles yet.</em></p>
-        {% endfor %}
+          {% for article in similar_articles %}
+            <p>
+              <li class="slim">
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+              </li>
+            </p>
+          {% empty %}
+            <p class="text-muted">
+              <em>There are no similar articles yet.</em>
+            </p>
+          {% endfor %}
         </ul>
-    </div>
-    {% with comments.count as total_comments %}
-      <h4>
-          {{ total_comments }} comment{{ total_comments|pluralize }}
-      </h4>
-    {% endwith %}
-    {% for comment in comments %}
-      <div class="comment">
-        <p class="info">
-        &middot Comment {{ forloop.counter }} by {{ comment.name }} &middot {{ comment.created }} 
-        </p>
-        {{ comment.body|linebreaks }}
       </div>
-    {% empty %}
-      <ul>
-      <p class="text-muted"><em>No comments have been posted yet.</em></p>
-      </ul>
-    {% endfor %}
+      {% with comments.count as total_comments %}
+        <h4>{{ total_comments }} comment{{ total_comments|pluralize }}</h4>
+      {% endwith %}
+      {% for comment in comments %}
+        <div class="comment">
+          <p class="info">&middot Comment {{ forloop.counter }} by {{ comment.name }} &middot {{ comment.created }}</p>
+          {{ comment.body|linebreaks }}
+        </div>
+      {% empty %}
+        <ul>
+          <p class="text-muted">
+            <em>No comments have been posted yet.</em>
+          </p>
+        </ul>
+      {% endfor %}
       {% include "articles/includes/comment_form.html" %}
 
-  <p>Back to <a class="btn btn-primary" href="{% url 'article_list' %}">&laquo; All Articles</a></p>
-  </p>
-</div>
-<div class="clear"></div>
+      <p>
+        Back to <a class="btn btn-primary" href="{% url 'article_list' %}">« All Articles</a>
+      </p>
+    </p>
+  </div>
+  <div class="clear"></div>
 {% endblock content %}
