@@ -183,3 +183,8 @@ li.slim {
   font-size: 12px;
   font-style: italic;
 }
+
+.copyright {
+  color: white;
+  font-size: 70%;
+}

@@ -2,48 +2,46 @@
 {% load article_tags %}
 {% load static %}
 
-{% block title %}Articles{% endblock title %}
+{% block title %}
+  Articles
+{% endblock title %}
 
 {% block content %}
-<div class="container">
-  <p>
-  <h3>Latest News Articles</h3>
-  {% if tag %}
-  <p>
-    <h2>Articles tagged with "{{ tag.name }}"</h2>
-  </p>
-  {% endif %}
-  {% for article in articles %}
-    <div class="card">
-      <div class="card-header">
-        <a class="font-weight-bold" href="{{ article.get_absolute_url }}">{{article.title }}</a> &middot;
-        <span class="text-muted">by {{ article.author }} | {{ article.publish }}</span>
-        <p class="tags">
-          Tags:
-          {% for tag in article.tags.all %}
-            <a href="{% url "article_list_by_tag" tag.slug %}">
-              {{ tag.name }}
-            </a>
-            {% if not forloop.last %}, {% endif %}
-          {% endfor %}
+  <div class="container">
+    <p>
+      <h3>Latest News Articles</h3>
+      {% if tag %}
+        <p>
+          <h2>Articles tagged with "{{ tag.name }}"</h2>
         </p>
-      </div>
-      <div class="card-body">
-        {{ article.body|markdown|truncatewords:30 }}
-      </div>
-        <div class="card-footer">
-        <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
-        {% if request.user == article.author %}
-            <a href="{% url 'article_edit' article.id %}">Edit</a> |
-            <a href="{% url 'article_delete' article.id %}">Delete</a> |
-        {% else %}
-        {% endif %}
+      {% endif %}
+      {% for article in articles %}
+        <div class="card">
+          <div class="card-header">
+            <a class="font-weight-bold" href="{{ article.get_absolute_url }}">{{ article.title }}</a> ·
+            <span class="text-muted">by {{ article.author }} | {{ article.publish }}</span>
+            <p class="tags">
+              Tags:
+              {% for tag in article.tags.all %}
+                <a href="{% url "article_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+                {% if not forloop.last %},{% endif %}
+              {% endfor %}
+            </p>
+          </div>
+          <div class="card-body">{{ article.body|markdown|truncatewords:30 }}</div>
+          <div class="card-footer">
+            <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
+            {% if request.user == article.author %}
+              <a href="{% url 'article_edit' article.id %}">Edit</a> |
+              <a href="{% url 'article_delete' article.id %}">Delete</a> |
+            {% else %}
+            {% endif %}
+          </div>
         </div>
-    </div>
-    <br />
-  {% endfor %}
-  </p>
-  {% include "pagination.html" with page=articles %}
-</div>
-<div class="clear"></div>
+        <br />
+      {% endfor %}
+    </p>
+    {% include "pagination.html" with page=articles %}
+  </div>
+  <div class="clear"></div>
 {% endblock content %}
