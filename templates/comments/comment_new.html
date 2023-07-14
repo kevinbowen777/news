@@ -1,20 +1,22 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ view.action|default:"Add" }} a comment{% endblock title %}
+{% block title %}
+  {{ view.action|default:"Add" }} a comment
+{% endblock title %}
 
 {% block content %}
-{% with action=view.action|default:"Add" %}
-<div class="container">
-  <p>
-  <h2>{{ action }} a comment</h2>
-  <form class="col-md-6" action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-success ml-2" type="submit">Save</button>
-    <a class="btn btn-info" href="#" onclick="window.history.back()">Cancel</a>
-  </form>
-  </p>
-</div>
-{% endwith %}
+  {% with action=view.action|default:"Add" %}
+    <div class="container">
+      <p>
+        <h2>{{ action }} a comment</h2>
+        <form class="col-md-6" action="" method="post">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button class="btn btn-success ml-2" type="submit">Save</button>
+          <a class="btn btn-info" href="#" onclick="window.history.back()">Cancel</a>
+        </form>
+      </p>
+    </div>
+  {% endwith %}
 {% endblock content %}
