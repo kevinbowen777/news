@@ -727,6 +727,17 @@ files = [
 test = ["factory-boy", "flake8", "pyflakes", "pytest", "pytest-cov", "pytest-django", "pytest-pythonpath"]
 
 [[package]]
+name = "django-types"
+version = "0.17.0"
+description = "Type stubs for Django"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "django-types-0.17.0.tar.gz", hash = "sha256:c1c42ab78876c57c728342d5ab060725ab371fc8dc83bb85bae0be06846aad70"},
+    {file = "django_types-0.17.0-py3-none-any.whl", hash = "sha256:43d4931159524c1a08b25c1b9a4db2512b7c1234b64b1d4db4aff78881d6afd0"},
+]
+
+[[package]]
 name = "djlint"
 version = "1.32.1"
 description = "HTML Template Linter and Formatter"
@@ -2532,4 +2543,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a4b95f7d8978418bed3a3775b72a2c8d1915b73e778f0cfd8ebbda2b1f9c40a4"
+content-hash = "6831a46687e4d5eb2f0b09a6e1641404c9a8c478130f7069415cf61ac9783e25"
