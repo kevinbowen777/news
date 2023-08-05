@@ -1,136 +1,69 @@
 news
 ====
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
+The news_ project is a blog-like application for posting articles and allowing
+users to comment on them. 
 
-   license
+This web application is built using the Django 4.2.x web application framework and is part of the collection of `Web Framework Projects`_ .
+
+.. _news: https://github.com/kevinbowen777/news
+.. _Web Framework Projects: https://github.com/kevinbowen777/web-project-index
+
+Getting Started
+---------------
+
+:doc:`features`
+    Outline of the project's basic functionality.
+
+:doc:`configuring`
+    Project configuration and customization options.
+
+:doc:`installing`
+    How to install the project directly on your local machine, or in a Docker
+    container.
+
+Project Information
+-------------------
+
+:doc:`changelog`
+    The project development changelog.
+
+:doc:`contributing`
+    How to contribute to improving the project, reporting bugs, and submitting
+    feature requests.
+
+:doc:`license`
+    Terms and conditions for use of this project.
+
+:doc:`testing`
+    Instructions for running tests against the project.
+
+.. Hidden TOCs
+
+.. toctree::
+   :caption: Project Documentation
+   :maxdepth: 2
+   :hidden:
+
+   features
+   installing
+   configuring
    package_index
+
+.. toctree::
+   :caption: Testing
+   :maxdepth: 1
+   :hidden:
+
+   testing
    create_new_users
    create_new_articles
 
-.. contents:: Table of Contents
-   :local:
-   :backlinks: top
-   :depth: 2
+.. toctree::
+   :caption: Reference
+   :maxdepth: 1
+   :hidden:
 
-news is a blog-like application built with the Django 4.2.x web application framework.
-
-Features
---------
-
- * Application
-
-   * Create, edit, and delete posts
-   * Centered account templates(login, registration, verification, etc.)
-   * User registration with email verification & social(GitHub) login using `django-allauth <https://pypi.org/project/django-allauth/>`_
-   * `Bootstrap4 <https://pypi.org/project/django-bootstrap4/>`_ & `crispy-forms <https://pypi.org/project/django-crispy-forms/>`_ decorations
-   * Customizable user profile pages with bio, profile pic, & `country flags <https://pypi.python.org/pypi/django-countries>`_
-   * For links to additional package resources used in this repository, see the :doc:`Package Index <package_index>`
- * Dev/testing
-
-   * Basic module testing templates
-   * `Coverage <https://pypi.org/project/coverage/>`_ reports in `htmlcov` directory
-   * `Debug-toolbar <https://pypi.org/project/django-debug-toolbar/>`_ available. See notes in `config/settings.py` for enabling.
-   * Examples of using `Factories <https://pypi.org/project/factory-boy/>`_ & `pytest <https://pypi.org/project/pytest/>`_ fixtures in account app testing
-   * `shell_plus <https://django-extensions.readthedocs.io/en/latest/shell_plus.html>`_ with `IPython <https://pypi.org/project/ipython/>`_ via `django-extensions <https://pypi.python.org/pypi/django-extensions/>`_ package
-   * `Nox <https://pypi.org/project/nox/>`_ testing sessions for latest Python 3.9, 3.10, and 3.11, 3.12
-
-     * `black <https://pypi.org/project/black/>`_
-     * `Sphinx <https://pypi.org/project/Sphinx/>`_ documentaion generation
-     * linting
-       
-       * `flake8 <https://pypi.org/project/flake8/>`_
-       * `flake8-bandit <https://pypi.org/project/flake8-bandit/>`_
-       * `flake8-bugbear <https://pypi.org/project/flake8-bugbear/>`_
-       * `flake8-import-order <https://pypi.org/project/flake8-import-order/>`_
-     * `safety <https://pypi.org/project/safety/)(python package vulnerability testing>`_
-     * `pytest sessions <https://docs.pytest.org/en/latest/>`_ with `pytest-cov <https://pypi.org/project/pytest-cov/>`_ & `pytest-django <https://pypi.org/project/pytest-django/>`_
- * `run` command menu
-
-(adapted from Nick Janetakis' helpful `docker-django-example <https://github.com/nickjj/docker-django-example/>`_)
-
-You can run `./run` to get a list of commands and each command has documentation in the run file itself. This comes in handy to run various Docker commands because sometimes these commands can be a bit long to type.
-
-*If you get tired of typing `./run` you can always create a shell alias with `alias run=./run` in your `~/.bash_aliases` or equivalent file. Then you'll be
-able to run `run` instead of `./run`.*
-
-Installation
-------------
-
-To install the news project,
-run this command in your terminal:
-
-.. code-block:: console
-
-   $ git clone https://github.com/kevinbowen777/news.git
-   $ cd news
-
-Local installation
-------------------
-
-.. code-block:: console
-
-   $ poetry shell
-   $ poetry install
-   $ python manage.py migrate
-   $ python manage.py createsuperuser
-
-
-Docker installation
--------------------
-
-.. code-block:: console
-
-   $ docker compose up --build
-   $ docker compose python manage.py migrate
-   $ docker compose python manage.py createsuperuser
-   Additional commands:
-   $ docker compose exec web python manage.py shell_plus
-     (loads Django shell autoloading project models & classes)
-   $ docker run -it django-start-web bash`
-     (CLI access to container)
-
-Pre-commit installation
------------------------
-   To add the hook, run the following command in the poetry shell:
-   $ pre-commit install
-
-Usage
------
-
-To run news, locally, enter the following on the command line:
-
-.. code-block:: console
-
-   $ python manage.py runserver
-
-For both local, or Docker installations, browse to `<http://127.0.0.1:8000>`_ or `<http://127.0.0.1:8000/resources/>`_
-
-Testing
--------
-
-.. code-block:: console
-
-   $ python manage.py runserver
-   $ docker compose exec web python manage.py test
-   $ coverage run -m pytest
-   $ nox --list-sessions
-   $ nox
-   $ nox -s black-3.12 
-   $ nox -s docs-3.11 
-   $ nox -rs lint-3.9  (Use the 'r' flag to reuse existing session)
-   $ nox -s safety  (will run tests against all Python versions)
-   $ nox -s tests 
-
-Application Demo
-----------------
-Live demonstration of application:
-
-TBD
-
-Reporting Bugs
---------------
-
-Visit the news `Issues page <https://github.com/kevinbowen777/news/issues>`_ on GitHub.
+   changelog
+   contributing
+   license
