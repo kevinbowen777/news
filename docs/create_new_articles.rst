@@ -1,7 +1,6 @@
 Create new articles
 ===================
 
-
 Instructions
 ------------
 
