@@ -114,10 +114,15 @@ plugins = [
 ]
 
 [tool.coverage.django_coverage_plugin]
-template_extensions = "html, txt, tex, email"
+template_extensions = "html"
 
 [tool.coverage.report]
 show_missing = true
+precision = 2
+
+[tool.coverage.html]
+show_contexts = true
+title = "news coverage report"
 
 [tool.djlint]
 exclude="htmlcov"
@@ -161,11 +166,16 @@ executionEnvironments = [
 ]
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "config.settings"
-python_files = ["tests.py", "test_*.py", "*_tests.py"]
+DJANGO_SETTINGS_MODULE = "config.test"
+# After changes to the db model, run the tests without --reuse-db flag
+# Otherwise, tests will generate an error:
+# psycopg2.errors.InvalidCursorName: cursor... does not exist
+# addopts = "-p no:warnings"
+addopts = "--reuse-db -p no:warnings"
+python_files = ["test_*.py"]
 filterwarnings = [
-    # "ignore::django.utils.deprecation.RemovedInDjango50Warning",
-    # "ignore::django.utils.deprecation.RemovedInDjango51Warning",
+    "ignore::django.utils.deprecation.RemovedInDjango50Warning",
+    "ignore::django.utils.deprecation.RemovedInDjango51Warning",
 ]
 
 [tool.ruff]
