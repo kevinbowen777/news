@@ -1,4 +1,4 @@
-from django.conf import settings  # noqa:F401
+from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap

@@ -6,7 +6,6 @@ from ..views import SignupPageView
 
 
 class SignupPageTests(TestCase):
-
     username = "newuser"
     email = "newuser@example.com"
 
@@ -26,9 +25,7 @@ class SignupPageTests(TestCase):
         )
         self.assertContains(self.response, "csrfmiddlewaretoken")
         self.assertEqual(get_user_model().objects.all().count(), 1)
-        self.assertEqual(
-            get_user_model().objects.all()[0].username, self.username
-        )
+        self.assertEqual(get_user_model().objects.all()[0].username, self.username)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
 
     def test_signup_view(self):
