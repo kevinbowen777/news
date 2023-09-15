@@ -1,4 +1,47 @@
+import pytest
+from django.test import RequestFactory
+from django.urls import reverse
+
+from ..views import (
+    article_create,
+)
+
+factory = RequestFactory()
+
+
+@pytest.mark.django_db
+def test_article_form_valid_on_create_view(admin_user):
+    form_data = {
+        "title": "A new late night test",
+        "body": "This is the body of the form test.",
+    }
+
+    request = factory.post(reverse("article_new"), form_data)
+    request.user = admin_user
+
+    response = article_create(request)
+    assert response.status_code == 200
+    assert True
+
+
 """
+@pytest.mark.django_db
+def test_message_form_valid_on_update_view(rf, message, admin_user):
+    form_data = {
+        "title": "A new late night test",
+        "body": "This is the body of the form test.",
+    }
+
+    url = reverse("article_update", kwargs={"pk": message.id})
+    # Make a request for our new message
+    request = rf.post(url, form_data)
+    request.user = admin_user
+
+    response = article_update(request, pk=message.id)
+    assert response.status_code == 200
+    assert True
+
+
 from django.test import SimpleTestCase
 from django.urls import reverse
 

@@ -6,6 +6,29 @@ from django.urls import reverse
 
 from ..models import Article, Comment
 
+# pytestmark = pytest.mark.django_db
+
+
+"""
+@pytest.mark.django_db
+def test_article_create_view(rf, article, admin_user):
+    form_data = {
+        "title": article.title,
+        "status": article.status,
+        "body": article.body,
+    }
+    # Make a request for our new message
+    request = rf.post(reverse("article_new"), form_data)
+    # Add an authenticated user
+    request.user = admin_user
+    # Use the request to get the response
+    response = article_create(request)
+    text = Article.published.last()
+    # Test that the response is valid
+    assert response.status_code == 302
+    assert text.author == article.author
+"""
+
 
 class ArticleTests(TestCase):
     def setUp(self):

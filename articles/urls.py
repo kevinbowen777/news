@@ -2,12 +2,12 @@ from django.urls import path
 
 from .feeds import LatestArticlesFeed
 from .views import (
-    ArticleCreateView,
     ArticleDeleteView,
     ArticleUpdateView,
     CommentDeleteView,
     CommentDetailView,
     CommentUpdateView,
+    article_create,
     article_detail,
     article_list,
     article_search,
@@ -22,7 +22,7 @@ urlpatterns = [
         article_detail,
         name="article_detail",
     ),
-    path("new/", ArticleCreateView.as_view(), name="article_new"),
+    path("new/", article_create, name="article_new"),
     path("<int:pk>/edit/", ArticleUpdateView.as_view(), name="article_edit"),
     path("<int:article_id>/share/", article_share, name="article_share"),
     path("feed/", LatestArticlesFeed(), name="article_feed"),

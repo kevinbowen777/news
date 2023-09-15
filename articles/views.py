@@ -1,17 +1,42 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.core.mail import send_mail
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Count
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.decorators.http import require_POST
 from django.views.generic import DetailView, ListView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.edit import DeleteView, UpdateView
 from taggit.models import Tag
 
-from .forms import CommentForm, EmailPostForm, SearchForm
+from .forms import ArticleForm, CommentForm, EmailPostForm, SearchForm
 from .models import Article, Comment
+
+
+@login_required
+def article_create(request):
+    template_name = "articles/article_new.html"
+    form = ArticleForm(request.POST or None)
+    if form.is_valid():
+        form.instance.author = request.user
+        form.save()
+        return redirect("article_list")
+
+    return render(request, template_name, {"form": form})
+
+
+"""
+class ArticleCreateView(LoginRequiredMixin, CreateView):
+    model = Article
+    template_name = "articles/article_new.html"
+    fields = ["title", "tags", "status", "body"]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+"""
 
 
 def article_list(request, tag_slug=None):
@@ -63,16 +88,6 @@ def article_detail(request, year, month, day, article):
             "similar_articles": similar_articles,
         },
     )
-
-
-class ArticleCreateView(LoginRequiredMixin, CreateView):
-    model = Article
-    template_name = "articles/article_new.html"
-    fields = ["title", "tags", "status", "body"]
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
 
 
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
