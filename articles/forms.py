@@ -1,6 +1,17 @@
 from django import forms
 
-from .models import Comment
+from .models import Article, Comment
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = [
+            "title",
+            "tags",
+            "status",
+            "body",
+        ]
 
 
 class CommentForm(forms.ModelForm):

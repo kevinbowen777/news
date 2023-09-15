@@ -11,9 +11,11 @@ class PublishedManager(models.Manager):
         return super().get_queryset().filter(status=Article.Status.PUBLISHED)
 
 
+"""
 class DraftManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Article.Status.DRAFT)
+"""
 
 
 class Article(models.Model):
@@ -41,7 +43,7 @@ class Article(models.Model):
     )
 
     objects = models.Manager()
-    draft = DraftManager()
+    # draft = DraftManager()
     published = PublishedManager()
     tags = TaggableManager()
 
