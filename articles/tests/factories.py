@@ -14,7 +14,6 @@ class ArticleFactory(factory.django.DjangoModelFactory):
     slug = factory.LazyAttribute(lambda obj: slugify(obj.title))
     body = factory.fuzzy.FuzzyText(length=50)
     publish = dt.now()
-    # publish = factory.fuzzy.FuzzyDate(datetime.date(2022, 6, 23))
     author = factory.SubFactory(UserFactory)
     status = "PB"
 
