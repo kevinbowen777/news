@@ -24,7 +24,7 @@
       <p>
         <a class="btn btn-success" href="{% url "article_share" article.id %}">Share this article</a>
         {% if request.user == article.author %}
-          <a class="btn btn-info" href="{% url 'article_edit' article.id %}">Edit Article</a>
+          <a class="btn btn-info" href="{% url 'article_update' article.id %}">Edit Article</a>
           <a class="btn btn-danger" href="{% url 'article_delete' article.id %}">Delete Article</a>
         {% else %}
         {% endif %}

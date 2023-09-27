@@ -32,7 +32,7 @@
           <div class="card-footer">
             <a class="btn btn-primary btn-sm" href="{{ article.get_absolute_url }}">View article</a>
             {% if request.user == article.author %}
-              <a href="{% url 'article_edit' article.id %}">Edit</a> |
+              <a href="{% url 'article_update' article.id %}">Edit</a> |
               <a href="{% url 'article_delete' article.id %}">Delete</a> |
             {% else %}
             {% endif %}

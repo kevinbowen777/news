@@ -1,38 +1,19 @@
-from django.test import TestCase
+from datetime import datetime as dt
 
-from accounts.tests.factories import UserFactory
+import pytest
 
-from .factories import ArticleFactory
-
-# from ..models import Review
+pytestmark = pytest.mark.django_db
 
 
-class ArticleTests(TestCase):
-    def setUp(self):
-        self.user = UserFactory()
-        self.article = ArticleFactory()
-        """
-        self.review = Review.objects.create(
-            article=self.article,
-            creator=self.user,
-            review="An excellent review",
-        )
-        """
+def test_article___str__(article):
+    assert article.__str__() == article.title
+    assert str(article) == article.title
 
-    def test__str__(self):
-        assert self.article.__str__() == self.article.title
-        assert str(self.article) == self.article.title
 
-    """
-    def test_get_absolute_url(self):
-        url = self.article.get_absolute_url()
-        assert url == f"/articles/{self.article.id}/"
+def test_article_get_absolute_url(article):
+    slug_time = dt.now().strftime("%Y/%-m/%-d")
+    assert article.get_absolute_url() == f"/articles/{slug_time}/{article.slug}/"
 
-    def test_review__str__(self):
-        assert self.review.__str__() == self.review.review
-        assert str(self.review) == self.review.review
 
-    def test_review_get_absolute_url(self):
-        url = self.review.get_absolute_url()
-        assert url == f'{"/articles/"}'
-    """
+def test_comment__str__(comment):
+    assert comment.__str__() == f"Comment by {comment.name} on {comment.article}"

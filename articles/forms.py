@@ -6,6 +6,7 @@ from .models import Article, Comment
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
+
         fields = [
             "title",
             "tags",
@@ -17,7 +18,12 @@ class ArticleForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ["name", "email", "body"]
+
+        fields = [
+            "name",
+            "email",
+            "body",
+        ]
 
 
 class EmailPostForm(forms.Form):
