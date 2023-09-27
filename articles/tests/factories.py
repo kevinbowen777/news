@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 
 from accounts.tests.factories import UserFactory
 
-from ..models import Article
+from ..models import Article, Comment
 
 
 class ArticleFactory(factory.django.DjangoModelFactory):
@@ -15,7 +15,19 @@ class ArticleFactory(factory.django.DjangoModelFactory):
     body = factory.fuzzy.FuzzyText(length=50)
     publish = dt.now()
     author = factory.SubFactory(UserFactory)
+    tags = "testing, django, example, greatarticle"
     status = "PB"
 
     class Meta:
         model = Article
+
+
+class CommentFactory(factory.django.DjangoModelFactory):
+    article = factory.SubFactory(ArticleFactory)
+    name = factory.SubFactory(UserFactory)
+    email = "test_dummy@example.com"
+    # email = f"{name.username}@example.com"
+    body = factory.fuzzy.FuzzyText(length=50)
+
+    class Meta:
+        model = Comment
