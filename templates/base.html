@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="keywords" content="Django, news" />
     <meta name="description" content="A simple news app built with  Django" />
     <title>Bits o' News |
@@ -22,6 +22,8 @@
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
           crossorigin="anonymous">
     <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
+          rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   </head>
   <body>
@@ -59,14 +61,14 @@
               </form>
             </li>
             <li class="nav-item">
-              <a class="nav-link dropdown-toggle"
+              <a class="btn btn-outline-light dropdown-toggle text-light mt-2"
                  href="#"
                  id="navbarDropdown"
                  role="button"
                  data-toggle="dropdown"
                  aria-haspopup="true"
                  aria-expanded="false">{{ user.username }}</a>
-              <div class="dropdown-menu dropdown-menu-right"
+              <div class="dropdown-menu dropdown-menu-lg-right"
                    aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'user_detail' user.username %}">My Profile</a>
                 <a class="dropdown-item" href="{% url 'account_set_password' %}">Change password</a>
