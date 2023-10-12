@@ -99,9 +99,15 @@ function nox:docs {
 }
 
 function nox:lint {
-  # Run a ruff linting tests
+  # Run a number of ruff linting tests
   # cmd nox -s lint-3.12 "${@}"
   nox -s lint-3.12 "${@}"
+}
+
+function nox:pyright {
+  # Run pyright typing checks
+  # cmd nox -s pyright-3.12 "${@}"
+  nox -s pyright-3.12 "${@}"
 }
 
 function nox:safety {
@@ -111,7 +117,7 @@ function nox:safety {
 }
 
 function nox:test {
-  # Run pytest and coverage checks using current python version
+  # Run several pytest and coverage checks
   # cmd nox -s tests-3.12 "${@}"
   nox -s tests-3.12 "${@}"
 }
@@ -120,18 +126,36 @@ function nox:all {
   # Perform all nox code quality tests together(except black)
   # cmd nox -s black-3.12 "${@}"
   # cmd nox -s lint-3.12 "${@}"
+  # cmd nox -s pyright-3.12 "${@}"
   # cmd nox -s safety-3.12 "${@}"
   # cmd nox -s tests-3.12 "${@}"
   # nox -s lint-3.12 "${@}"
+  # nox -s pyright-3.12 "${@}"
   # nox -s safety-3.12 "${@}"
   # nox -s tests-3.12 "${@}"
   nox
 }
 
+function nox:re-all {
+  # Perform all nox code quality tests together(except black)
+  # cmd nox -s black-3.12 "${@}"
+  # cmd nox -s lint-3.12 "${@}"
+  # cmd nox -s pyright-3.12 "${@}"
+  # cmd nox -s safety-3.12 "${@}"
+  # cmd nox -s tests-3.12 "${@}"
+  # nox -s lint-3.12 "${@}"
+  # nox -s pyright-3.12 "${@}"
+  # nox -s safety-3.12 "${@}"
+  # nox -s tests-3.12 "${@}"
+  nox -rs
+}
+
 function poe:old {
   # List any installed packages that are outdated
-  # cmd poetry show -ol
   poetry show -ol
+  # The following command runs twice as fast; but, requires the container
+  # to be running:
+  # cmd poetry show -ol
 }
 
 function poe:up {
@@ -140,7 +164,7 @@ function poe:up {
 }
 
 function reqs:dev {
-  # Export all dev package requirements
+  # Export all package requirements
   poetry export --with=dev --output requirements-dev.txt
 }
 
@@ -150,7 +174,7 @@ function reqs:prod {
 }
 
 function reqs:all {
-  # Export production and dev package requirements
+  # Export production package requirements
   poetry export --output requirements.txt
   poetry export --with=dev --output requirements-dev.txt
 }
@@ -209,6 +233,6 @@ function help {
   printf "\nExtended help:\n  Each task has comments for general usage\n"
 }
 
-# This idea is inspired by: https://github.com/adriancooney/Taskfile
+# This idea is heavily inspired by: https://github.com/adriancooney/Taskfile
 TIMEFORMAT=$'\nTask completed in %3lR'
 time "${@:-help}"
