@@ -1,5 +1,9 @@
+# syntax=docker/dockerfile:1
+# Enable Docker BuildKit
+# https://docs.docker.com/build/dockerfile/frontend/
+
 # `python-base` sets up all our shared environment variables
-FROM python:3.11-slim-bookworm AS python-base
+FROM python:3.12-slim-bookworm AS python-base
 LABEL maintainer="Kevin Bowen <kevin.bowen@gmail.com>"
 
 ENV DEBUG="${DEBUG}" \
