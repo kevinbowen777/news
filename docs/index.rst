@@ -2,7 +2,7 @@ news
 ====
 
 The news_ project is a blog-like application for posting articles and allowing
-users to comment on them. 
+users to comment on them.
 
 This web application is built using the Django 4.2.x web application framework and is part of the collection of `Web Framework Projects`_ .
 
