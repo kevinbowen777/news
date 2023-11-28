@@ -73,7 +73,7 @@ werkzeug = "^3.0"
 pyopenssl = "^23.2.0"
 sphinx = ">= 7.2.5, < 7.3.0"
 furo = "^2023.7.26"
-ruff = ">= 0.0.275, < 0.0.300"
+ruff = "^0.1.0"
 
 [tool.black]
 line-length = 88
@@ -178,6 +178,8 @@ filterwarnings = [
 ]
 
 [tool.ruff]
+preview = true
+unsafe-fixes = false
 select = [
     "B",    # flake8-bugbear
     "C90",  # mccabe
