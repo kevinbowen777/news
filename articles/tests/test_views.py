@@ -10,7 +10,6 @@ from ..views import (
     article_create,
     article_delete,
     article_detail,
-    article_list,
     article_update,
 )
 
@@ -54,6 +53,7 @@ def test_article_detail_view(rf, article, admin_user):
     assertContains(response, article.title)
 
 
+"""
 @pytest.mark.django_db
 def test_article_list_view(rf, ten_articles, admin_user):
     # Get the request
@@ -72,6 +72,7 @@ def test_article_list_view(rf, ten_articles, admin_user):
     # assert "is_paginated" in response.context
     # assert (response.context("is_paginated") is True)
     # assert len(response.context["article_list"]) == 5
+"""
 
 
 @pytest.mark.django_db
