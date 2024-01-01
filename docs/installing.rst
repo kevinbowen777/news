@@ -9,7 +9,7 @@ To install the ``news`` project, run the following command in your terminal:
 .. code-block:: console
 
    $ git clone https://github.com/kevinbowen777/news.git
-   $ cd news 
+   $ cd news
 
 Local installation
 ^^^^^^^^^^^^^^^^^^
