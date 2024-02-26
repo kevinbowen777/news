@@ -1,4 +1,5 @@
 """Settings for the news project."""
+
 from pathlib import Path
 
 # import socket  # Comment out if not using debug_toolbar
