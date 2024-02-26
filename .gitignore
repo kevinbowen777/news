@@ -1,4 +1,4 @@
-# updated 20220904
+# updated 20220225
 # from: https://github.com/github/gitignore
 
 docker-compose-prod.yml
@@ -56,7 +56,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-.ruff_cache/
 cover/
 
 # Translations

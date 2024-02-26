@@ -1,4 +1,5 @@
 """Nox sessions - news."""
+
 import tempfile
 
 import nox
