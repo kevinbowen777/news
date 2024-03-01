@@ -32,12 +32,12 @@ news is a blog-like application built with the Django 5.0.x web framework.
      - For additional links to package resources used in this repository, see the [Package Index](docs/package_index.md)
  - Dev/testing
      - Basic module testing templates
-     - [Coverage](https://pypi.org/project/coverage/) reports in `htmlcov` directory
+     - [Coverage](https://kevinbowen777.github.io/) reports on the web.
      - [Debug-toolbar](https://pypi.org/project/django-debug-toolbar/) available. See notes in `config/settings.py` for enabling.
      - Examples of using [Factories](https://pypi.org/project/factory-boy/) & [pytest](https://pypi.org/project/pytest/) fixtures in account app testing
      - [shell_plus](https://django-extensions.readthedocs.io/en/latest/shell_plus.html) with [IPython](https://pypi.org/project/ipython/) via [django-extensions](https://pypi.python.org/pypi/django-extensions/) package
      - [Nox](https://pypi.org/project/nox/) testing sessions for latest Python 3.10, 3.11, and 3.12
-         - [black](https://pypi.org/project/black/) (`nox -s black`)
+         - [coverage](https://pypi.org/project/coverage/) (`nox -s coverage`)
          - [Sphinx](https://pypi.org/project/Sphinx/) documentaion generation (`nox -s lint`)
          - linting (`nox -s lint`)
              - [ruff](https://pypi.org/project/ruff/)
@@ -84,11 +84,11 @@ able to run `run` instead of `./run`.*
 ### Testing
  - `docker compose exec web python manage.py test`
  - `coverage run -m pytest`
- - Nox (includes sessions for black, lint, typing, safety, tests)
+ - Nox (includes sessions for coverage, lint, typing, safety, tests)
      - testing supported for Python 3.9, 3.10, 3.11
      - e.g. `nox`, `nox -rs lint-3.11`, `nox -s tests`
        - `nox`
-       - `nox -s black-3.12`
+       - `nox -s coverage-3.12`
        - `nox -s docs-3.11`
        - `nox -rs lint-3.10` (Use the 'r' flag to reuse existing session)
        - `nox -s pyright-3.11`
