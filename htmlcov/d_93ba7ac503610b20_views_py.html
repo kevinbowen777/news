@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Coverage for articles/views.py: 66.93%</title>
+    <title>Coverage for articles/views.py: 64.10%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript">
@@ -27,7 +27,7 @@
     <div class="content">
         <h1>
             <span class="text">Coverage for </span><b>articles/views.py</b>:
-            <span class="pc_cov">66.93%</span>
+            <span class="pc_cov">64.10%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -82,7 +82,7 @@
             <a id="nextFileLink" class="nav" href="d_1ea838694151cac8_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.4">coverage.py v7.4.4</a>,
-            created at 2024-03-14 21:09 +0000
+            created at 2024-03-31 10:46 -0700
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -210,10 +210,10 @@
     <p class="pln"><span class="n"><a id="t111" href="#t111">111</a></span><span class="t">            <span class="com"># fmt: off</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t112" href="#t112">112</a></span><span class="t">            <span class="nam">cd</span> <span class="op">=</span> <span class="nam">form</span><span class="op">.</span><span class="nam">cleaned_data</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t113" href="#t113">113</a></span><span class="t">            <span class="nam">article_url</span> <span class="op">=</span> <span class="nam">request</span><span class="op">.</span><span class="nam">build_absolute_uri</span><span class="op">(</span><span class="nam">article</span><span class="op">.</span><span class="nam">get_absolute_url</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t114" href="#t114">114</a></span><span class="t">            <span class="nam">subject</span> <span class="op">=</span> <span class="fst">f"</span><span class="op">{</span><span class="nam">cd</span><span class="op">[</span><span class="str">'name'</span><span class="op">]</span><span class="op">}</span><span class="fst"> recommends you read </span><span class="fst">"</span> <span class="fst">f"</span><span class="op">{</span><span class="nam">article</span><span class="op">.</span><span class="nam">title</span><span class="op">}</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t114" href="#t114">114</a></span><span class="t">            <span class="nam">subject</span> <span class="op">=</span> <span class="str">f"{cd['name']} recommends you read "</span> <span class="str">f"{article.title}"</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t115" href="#t115">115</a></span><span class="t">            <span class="nam">message</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t116" href="#t116">116</a></span><span class="t">                <span class="fst">f"</span><span class="fst">Read </span><span class="op">{</span><span class="nam">article</span><span class="op">.</span><span class="nam">title</span><span class="op">}</span><span class="fst"> at </span><span class="op">{</span><span class="nam">article_url</span><span class="op">}</span><span class="fst">\n\n</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t117" href="#t117">117</a></span><span class="t">                <span class="fst">f"</span><span class="op">{</span><span class="nam">cd</span><span class="op">[</span><span class="str">'name'</span><span class="op">]</span><span class="op">}</span><span class="fst">'s comments: </span><span class="op">{</span><span class="nam">cd</span><span class="op">[</span><span class="str">'comments'</span><span class="op">]</span><span class="op">}</span><span class="fst">"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t116" href="#t116">116</a></span><span class="t">                <span class="str">f"Read {article.title} at {article_url}\n\n"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t117" href="#t117">117</a></span><span class="t">                <span class="str">f"{cd['name']}'s comments: {cd['comments']}"</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t118" href="#t118">118</a></span><span class="t">            <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t119" href="#t119">119</a></span><span class="t">            <span class="nam">send_mail</span><span class="op">(</span><span class="nam">subject</span><span class="op">,</span> <span class="nam">message</span><span class="op">,</span> <span class="str">"kevin.bowen@gmail.com"</span><span class="op">,</span> <span class="op">[</span><span class="nam">cd</span><span class="op">[</span><span class="str">"to"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t120" href="#t120">120</a></span><span class="t">            <span class="nam">sent</span> <span class="op">=</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
@@ -283,7 +283,7 @@
             <a id="nextFileLink" class="nav" href="d_1ea838694151cac8_test_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.4">coverage.py v7.4.4</a>,
-            created at 2024-03-14 21:09 +0000
+            created at 2024-03-31 10:46 -0700
         </p>
     </div>
 </footer>
