@@ -31,22 +31,23 @@ The following sessions are available to run via ``nox``:
 
 ::
 
+    - coverage-3.13 -> Run coverage code formatter.
     - coverage-3.12 -> Run coverage code formatter.
     - coverage-3.11 -> Run coverage code formatter.
     - coverage-3.10 -> Run coverage code formatter.
-    - coverage-3.9 -> Run coverage code formatter.
+    - docs-3.13 -> Build the documentation.
     - docs-3.12 -> Build the documentation.
     - docs-3.11 -> Build the documentation.
     - docs-3.10 -> Build the documentation.
-    - docs-3.9 -> Build the documentation.
+    * lint-3.13 -> Lint using ruff.
     * lint-3.12 -> Lint using ruff.
     * lint-3.11 -> Lint using ruff.
     * lint-3.10 -> Lint using ruff.
-    * lint-3.9 -> Lint using ruff.
+    * safety-3.13 -> Scan dependencies for insecure packages.
     * safety-3.12 -> Scan dependencies for insecure packages.
     * safety-3.11 -> Scan dependencies for insecure packages.
     * safety-3.10 -> Scan dependencies for insecure packages.
-    * safety-3.9 -> Scan dependencies for insecure packages.
+    * tests-3.13 -> Run the test suite.
     * tests-3.12 -> Run the test suite.
     * tests-3.11 -> Run the test suite.
     * tests-3.10 -> Run the test suite.
