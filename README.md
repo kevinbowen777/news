@@ -43,7 +43,7 @@ news is a blog-like application built with the Django 5.1.x web framework.
          - linting (`nox -s lint`)
              - [ruff](https://pypi.org/project/ruff/)
              - [djlint](https://pypi.org/project/djlint/)
-         - [safety](https://pypi.org/project/safety/)(python package vulnerability testing) (`nox -s safety`)
+         - [pip-audit](https://pypi.org/project/pip-audit/)(python package vulnerability testing) (`nox -s audit`)
          - [pytest](https://docs.pytest.org/en/latest/) sessions with
            [pytest-cov](https://pypi.org/project/pytest-cov/)
            [pytest-django](https://pypi.org/project/pytest-django/) (`coverage run -m pytest`)
@@ -92,7 +92,7 @@ news is a blog-like application built with the Django 5.1.x web framework.
 ### Testing
  - `docker compose exec web python manage.py test`
  - `coverage run -m pytest`
- - Nox (includes sessions for coverage, docs, lint, typing, safety, tests)
+ - Nox (includes sessions for coverage, docs, lint, typing, audit, tests)
      - testing supported for Python 3.10, 3.11, 3.12, 3.13
      - e.g. `nox`, `nox -rs lint-3.11`, `nox -s tests`
        - `nox`
@@ -100,7 +100,7 @@ news is a blog-like application built with the Django 5.1.x web framework.
        - `nox -s docs-3.13`
        - `nox -rs lint-3.10` (Use the 'r' flag to reuse existing session)
        - `nox -s pyright-3.11`
-       - `nox -s safety` (will run tests against all Python versions)
+       - `nox -s audit` (will run tests against all Python versions)
        - `nox -s tests`
 
 ---
