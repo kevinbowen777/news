@@ -4,7 +4,7 @@ news
 The news_ project is a blog-like application for posting articles and allowing
 users to comment on them.
 
-This web application is built using the Django 5.1.x web application framework and is part of the collection of `Web Framework Projects`_ .
+This web application is built using the Django 5.2.x web application framework and is part of the collection of `Web Framework Projects`_ .
 
 .. _news: https://github.com/kevinbowen777/news
 .. _Web Framework Projects: https://github.com/kevinbowen777/web-project-index
