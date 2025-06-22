@@ -17,7 +17,7 @@ dependencies = [
     "django-crispy-forms (>=2.4, <2.5)",
     "django-countries (>=7.3.2, <7.7.0)",
     "django-taggit (==6.1.0)",
-    "markdown (==3.8)",
+    "markdown (==3.8.2)",
 ]
 authors = [
     { name = "Kevin Bowen", email = "kevin.bowen@gmail.com" },
@@ -72,7 +72,7 @@ factory-boy = "3.3.3"
 werkzeug = ">=3.1, <4.0"
 pyopenssl = ">=24.0, <26.0"
 furo = ">=2024.0, <2025.0"
-django-types = ">=0.20.0, <0.21.0"
+django-types = ">=0.21.0, <0.22.0"
 pip-audit = "^2.9.0"
 
 [tool.poetry.requires-plugins]
