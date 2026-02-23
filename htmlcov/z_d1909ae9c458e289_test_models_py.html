@@ -75,7 +75,7 @@
             <a id="nextFileLink" class="nav" href="z_d1909ae9c458e289_test_urls_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.4">coverage.py v7.13.4</a>,
-            created at 2026-02-12 12:39 -0800
+            created at 2026-02-22 16:47 -0800
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -104,11 +104,11 @@
     <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="key">def</span> <span class="nam">test_article_get_absolute_url</span><span class="op">(</span><span class="nam">article</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"><label for="ctxs13" class="ctx">(empty)</label></span></p>
     <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">    <span class="nam">slug_time</span> <span class="op">=</span> <span class="nam">dt</span><span class="op">.</span><span class="nam">now</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">strftime</span><span class="op">(</span><span class="str">"%Y/%-m/%-d"</span><span class="op">)</span>&nbsp;</span><input type="checkbox" id="ctxs14"><span class="r"><label for="ctxs14" class="ctx">1 ctx</label></span><span class="ctxs">1c</span></p>
-    <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">    <span class="key">assert</span> <span class="nam">article</span><span class="op">.</span><span class="nam">get_absolute_url</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fst">f"</span><span class="fst">/articles/</span><span class="op">{</span><span class="nam">slug_time</span><span class="op">}</span><span class="fst">/</span><span class="op">{</span><span class="nam">article</span><span class="op">.</span><span class="nam">slug</span><span class="op">}</span><span class="fst">/</span><span class="fst">"</span>&nbsp;</span><input type="checkbox" id="ctxs15"><span class="r"><label for="ctxs15" class="ctx">1 ctx</label></span><span class="ctxs">1c</span></p>
+    <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">    <span class="key">assert</span> <span class="nam">article</span><span class="op">.</span><span class="nam">get_absolute_url</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">f"/articles/{slug_time}/{article.slug}/"</span>&nbsp;</span><input type="checkbox" id="ctxs15"><span class="r"><label for="ctxs15" class="ctx">1 ctx</label></span><span class="ctxs">1c</span></p>
     <p class="pln"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t"><span class="key">def</span> <span class="nam">test_comment__str__</span><span class="op">(</span><span class="nam">comment</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"><label for="ctxs18" class="ctx">(empty)</label></span></p>
-    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="key">assert</span> <span class="nam">comment</span><span class="op">.</span><span class="nam">__str__</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fst">f"</span><span class="fst">Comment by </span><span class="op">{</span><span class="nam">comment</span><span class="op">.</span><span class="nam">name</span><span class="op">}</span><span class="fst"> on </span><span class="op">{</span><span class="nam">comment</span><span class="op">.</span><span class="nam">article</span><span class="op">}</span><span class="fst">"</span>&nbsp;</span><input type="checkbox" id="ctxs19"><span class="r"><label for="ctxs19" class="ctx">1 ctx</label></span><span class="ctxs">1d</span></p>
+    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="key">assert</span> <span class="nam">comment</span><span class="op">.</span><span class="nam">__str__</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">f"Comment by {comment.name} on {comment.article}"</span>&nbsp;</span><input type="checkbox" id="ctxs19"><span class="r"><label for="ctxs19" class="ctx">1 ctx</label></span><span class="ctxs">1d</span></p>
 </main>
 <footer>
     <div class="content">
@@ -118,7 +118,7 @@
             <a class="nav" href="z_d1909ae9c458e289_test_urls_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.4">coverage.py v7.13.4</a>,
-            created at 2026-02-12 12:39 -0800
+            created at 2026-02-22 16:47 -0800
         </p>
     </div>
 </footer>
