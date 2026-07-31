@@ -122,7 +122,6 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_L10N = True
 
 USE_TZ = True
 
@@ -132,7 +131,14 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
 STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -147,7 +153,6 @@ See also: http://whitenoise.evans.io/en/stable/django.html#troubleshooting-the-w
 # WHITENOISE_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django-allauth config
 LOGIN_REDIRECT_URL = "article_list"
@@ -216,7 +221,7 @@ CRISPY_CLASS_CONVERTERS = {
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-ADMINS = [("Kevin Bowen", "kevinbowen@protonmail.com")]
+ADMINS = ["kevinbowen@protonmail.com"]
 MANAGERS = ADMINS
 
 # LOGGING
