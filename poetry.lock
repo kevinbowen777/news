@@ -2736,6 +2736,25 @@ files = [
 ]
 
 [[package]]
+name = "towncrier"
+version = "25.8.0"
+description = "Building newsfiles for your project."
+optional = false
+python-versions = ">=3.9"
+groups = ["dev"]
+files = [
+    {file = "towncrier-25.8.0-py3-none-any.whl", hash = "sha256:b953d133d98f9aeae9084b56a3563fd2519dfc6ec33f61c9cd2c61ff243fb513"},
+    {file = "towncrier-25.8.0.tar.gz", hash = "sha256:eef16d29f831ad57abb3ae32a0565739866219f1ebfbdd297d32894eb9940eb1"},
+]
+
+[package.dependencies]
+click = "*"
+jinja2 = "*"
+
+[package.extras]
+dev = ["furo (>=2024.5.6)", "nox", "packaging", "sphinx (>=5)", "twisted"]
+
+[[package]]
 name = "types-psycopg2"
 version = "2.9.21.20260724"
 description = "Typing stubs for psycopg2"
@@ -2844,4 +2863,4 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12.0, <3.15.0"
-content-hash = "3684fe7315a6d63755282ab53b086548b07d44faf8b3a22b4c02fe86cfd8e6e2"
+content-hash = "6d1e282341b5fadea1121b3dd57db2a86adb5a401075fc0cc020975db0ff78e1"
