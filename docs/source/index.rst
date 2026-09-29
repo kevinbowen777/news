@@ -12,15 +12,14 @@ This web application is built using the Django 6.x web application framework and
 Getting Started
 ---------------
 
-:doc:`features`
-    Outline of the project's basic functionality.
+:doc:`installation/index`
+    How to install the project directly on your local machine, or in a Docker container.
 
-:doc:`configuring`
+:doc:`configuration/index`
     Project configuration and customization options.
 
-:doc:`installing`
-    How to install the project directly on your local machine, or in a Docker
-    container.
+:doc:`features/index`
+    Outline of the project's basic functionality.
 
 Project Information
 -------------------
@@ -35,35 +34,31 @@ Project Information
 :doc:`license`
     Terms and conditions for use of this project.
 
-:doc:`testing`
+:doc:`testing/index`
     Instructions for running tests against the project.
 
-.. Hidden TOCs
-
 .. toctree::
-   :caption: Project Documentation
-   :maxdepth: 2
+   :caption: Getting Started
    :hidden:
+   :maxdepth: 2
 
-   features
-   installing
-   configuring
-   package_index
+   installation/index
+   configuration/index
+   features/index
 
 .. toctree::
    :caption: Testing
-   :maxdepth: 1
    :hidden:
 
-   testing
-   create_new_users
-   create_new_articles
+   testing/index
+   testing/create_new_users
+   testing/create_new_articles
 
 .. toctree::
    :caption: Reference
-   :maxdepth: 1
    :hidden:
 
+   features/package_index
    changelog
    contributing
    license
