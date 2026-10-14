@@ -18,6 +18,7 @@ news is a blog-like application built with the Django 6.x web framework.
 - [Testing](#testing)
 - [Application Demo](#application-demo)
 - [Screenshots](#screenshots)
+- [Contributions](#contributions)
 - [Reporting Bugs](#reporting-bugs)
 
 ---
@@ -128,6 +129,13 @@ Articles Page with drop-down menu shown
 
 Login Page with GitHub Oauth option
 ![Login](images/news_login.png)
+
+---
+
+### Contributions
+
+You are free to fork this repository and modify as you see fit. See
+[CONTRIBUTING](https://github.com/kevinbowen777/news/CONTRIBUTING.md) for details on reporting issues, etc.
 
 ---
 
