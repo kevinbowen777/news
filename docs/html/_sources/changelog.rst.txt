@@ -27,6 +27,26 @@ with advance notice in the **Deprecations** section of releases.
 
 .. towncrier release notes start
 
+news 0.3.8 (2026-10-14)
+=======================
+
+Security updated
+----------------
+
+-  (`#655 <https://github.com/kevinbowen777/news/655>`_): Update django-allauth to 65.19.7
+
+-  (`#656 <https://github.com/kevinbowen777/news/656>`_): Update Django to 6.1.2
+
+
+Contributor-facing changes
+--------------------------
+
+-  (`#655 <https://github.com/kevinbowen777/news/655>`_): Update testing for Python 3.14.8, 3.13.16, 3.12.15
+
+-  (`#655 <https://github.com/kevinbowen777/news/655>`_): Update djlint to 1.46.4
+
+-  (`#655 <https://github.com/kevinbowen777/news/655>`_): Update werkzeug to 3.1.9
+
 news 0.3.7 (2026-09-29)
 =======================
 
