@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django import forms
 
 from .models import Article, Comment
@@ -7,7 +9,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
 
-        fields = [
+        fields: ClassVar[list[str]] = [
             "title",
             "tags",
             "status",
@@ -19,7 +21,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
 
-        fields = [
+        fields: ClassVar[list[str]] = [
             "name",
             "email",
             "body",

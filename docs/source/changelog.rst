@@ -27,6 +27,38 @@ with advance notice in the **Deprecations** section of releases.
 
 .. towncrier release notes start
 
+news 0.3.9 (2026-10-31)
+=======================
+
+Security updated
+----------------
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update .python-version with 3.14.10, 3.13.18, 3.12.16
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update pip to 26.2.2
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update django-allauth to 65.20.1
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update pillow to 13.0.0
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update certifi to 2026.10.23
+
+
+Improved documentation
+----------------------
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Remove legacy license classifier
+
+
+Contributor-facing changes
+--------------------------
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update djlint to 1.47.1
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update nox to 2026.10.20
+
+-  (`#658 <https://github.com/kevinbowen777/news/658>`_): Update ruff rules & fix reported errors
+
 news 0.3.8 (2026-10-14)
 =======================
 

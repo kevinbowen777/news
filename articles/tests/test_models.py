@@ -6,7 +6,6 @@ pytestmark = pytest.mark.django_db
 
 
 def test_article___str__(article):
-    assert article.__str__() == article.title
     assert str(article) == article.title
 
 
@@ -16,4 +15,4 @@ def test_article_get_absolute_url(article):
 
 
 def test_comment__str__(comment):
-    assert comment.__str__() == f"Comment by {comment.name} on {comment.article}"
+    assert str(comment) == f"Comment by {comment.name} on {comment.article}"
