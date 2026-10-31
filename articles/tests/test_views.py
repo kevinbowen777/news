@@ -2,7 +2,7 @@ import pytest
 from django.urls import reverse
 from pytest_django.asserts import (
     assertContains,
-    assertTemplateUsed,
+    # assertTemplateUsed,
 )
 
 from ..models import Article
@@ -157,7 +157,7 @@ def test_comment_add(client, article, user):
         },
     )
 
-    assert response.status_code, 200
+    assert response.status_code == 200
 
 
 """

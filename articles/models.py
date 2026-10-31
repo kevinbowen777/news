@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -48,8 +50,8 @@ class Article(models.Model):
     tags = TaggableManager()
 
     class Meta:
-        ordering = ["-publish"]
-        indexes = [
+        ordering: ClassVar[list[str]] = ["-publish"]
+        indexes: ClassVar[list] = [
             models.Index(fields=["-publish"]),
         ]
 
@@ -82,8 +84,8 @@ class Comment(models.Model):
     active = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ["created"]
-        indexes = [
+        ordering: ClassVar[list[str]] = ["created"]
+        indexes: ClassVar[list] = [
             models.Index(fields=["created"]),
         ]
 

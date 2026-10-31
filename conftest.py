@@ -43,10 +43,10 @@ def ten_articles(user):
     for article_id in range(10):
         article_id += 1
         Article.objects.create(
-            title="A Tiny Test Article {0}".format(article_id),
+            title=f"A Tiny Test Article {article_id}",
             tags="dummy, test, django",
             # slug="2023/9/18/a-tiny-test-article-{0}/".format(article_id),
-            body="Some article content {0}".format(article_id),
+            body=f"Some article content {article_id}",
             author=user,
         )
         articles.append(article)
